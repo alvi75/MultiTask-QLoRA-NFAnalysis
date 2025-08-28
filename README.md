@@ -63,5 +63,5 @@ python multitask/qlora_train.py   --base_model_name Qwen/Qwen2.5-Coder-1.5B-Inst
 
 ## Notes
 - **Batch size** = 2, **Grad accumulation** = 16 (default across all tasks).  
-- **Validation samples**: by default, 5–10% of the validation set. To avoid OOM, capped to **250–400** depending on the task.  
+- **Validation samples**: recommendation, 5–10% of the validation set. To avoid OOM, capped to **250–400** depending on the task.  
 - **Evaluation steps** are computed as *steps per epoch*, i.e., dataset size ÷ effective batch size. 
