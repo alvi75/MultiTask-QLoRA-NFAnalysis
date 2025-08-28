@@ -15,8 +15,7 @@ Each task has its own folder with separate scripts for FFT and QLoRA.
 ├── summarization/    # fft_train.py, qlora_train.py
 ├── generation/       # fft_train.py, qlora_train.py
 ├── translation/      # fft_train.py, qlora_train.py
-├── multitask/        # fft_train.py, qlora_train.py
-├── utils/            # shared helpers (data loader, evaluation, configs)
+├── multitask/        # fft_train.py, qlora_train.py          
 ├── requirements.txt
 └── README.md
 ```
