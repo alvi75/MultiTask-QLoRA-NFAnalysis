@@ -1,4 +1,4 @@
-# Resource-Efficiency-SE
+# MultiTask-QLoRA-NFAnalysis
 
 This repository contains experiments on **code summarization**, **code generation**, **code translation**, and **multitask training** using two training strategies:
 
