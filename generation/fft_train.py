@@ -16,9 +16,9 @@ def parse_args():
     parser.add_argument('--gradient_accumulation_steps', type=int, default=16, help="Gradient accumulation steps")
     parser.add_argument('--sample_size', type=int, default=-1, help="Sample size for training data per language (-1 for full dataset)")
     parser.add_argument('--val_sample_size', type=int, default=-1, help="Sample size for validation data per language (-1 for full dataset)")
-    parser.add_argument('--eval_samples', type=int, default=250, help="Number of samples for evaluation during training")
+    parser.add_argument('--eval_samples', type=int, default=500, help="Number of samples for evaluation during training")
     parser.add_argument('--save_processed_data', type=bool, default=True, help="Save processed datasets")
-    parser.add_argument('--num_train_epochs', type=int, default=3, help="Number of training epochs")
+    parser.add_argument('--num_train_epochs', type=int, default=5, help="Number of training epochs")
     args = parser.parse_args()
     return args
 
@@ -29,10 +29,9 @@ def apply_chat_template_java(example, tokenizer):
     summary_part = input_text.split("Summary:")[1].split("Signature:")[0].strip()
     signature_part = input_text.split("Signature:")[1].strip()
     
-    signature_part = signature_part.rstrip('{').strip()
         
-    user_prompt = f"Generate Java code with the following specification:\nSignature: {signature_part}\nDescription: {summary_part}"
-    
+    user_prompt = f"{summary_part}\n\nFunction to implement:\n{signature_part}"
+
     chat = [
         {"role": "system", "content": "You are an expert Java developer. Generate complete and efficient Java code based on the given specifications."},
         {"role": "user", "content": user_prompt},
@@ -53,10 +52,9 @@ def apply_chat_template_python(example, tokenizer):
     summary_part = input_text.split("Summary:")[1].split("Signature:")[0].strip()
     signature_part = input_text.split("Signature:")[1].strip()
     
-    signature_part = signature_part.rstrip(':').strip()
         
-    user_prompt = f"Generate Python code with the following specification:\nSignature: {signature_part}\nDescription: {summary_part}"
-    
+    user_prompt = f"{summary_part}\n\nFunction to implement:\n{signature_part}"
+
     chat = [
         {"role": "system", "content": "You are an expert Python developer. Generate complete and efficient Python code based on the given specifications."},
         {"role": "user", "content": user_prompt},
@@ -72,7 +70,12 @@ def apply_chat_template_python(example, tokenizer):
 
 def compute_metrics_codebleu(eval_pred, tokenizer):
     predictions, labels = eval_pred
-    
+
+    if isinstance(predictions, list):
+        predictions = np.concatenate(predictions, axis=0)
+    if isinstance(labels, list):
+        labels = np.concatenate(labels, axis=0)
+
     if predictions.ndim == 3:
         predictions = np.argmax(predictions, axis=-1)
     
@@ -112,6 +115,10 @@ def compute_metrics_codebleu(eval_pred, tokenizer):
 def main():
     args = parse_args()
     
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache()
+
     print("="*80)
     print("Multilingual Code Generation Training")
     print(f"Languages: Java + Python")
@@ -120,7 +127,6 @@ def main():
     
     hf_token = os.environ.get("HF_TOKEN")
     
-    # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.base_model_name, 
         token=hf_token, 
@@ -131,7 +137,6 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
     
-    # Load model
     model = AutoModelForCausalLM.from_pretrained(
         args.base_model_name,
         device_map="auto",
@@ -141,7 +146,6 @@ def main():
     )
     model.config.use_cache = False
     
-    # Load Java dataset
     print("Loading Java code generation dataset...")
     ds_java = DatasetDict.load_from_disk('/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/java')
     
@@ -168,7 +172,6 @@ def main():
     )
     print(f"Java - Train: {len(train_java_processed)}, Test: {len(test_java_processed)}")
     
-    # Load Python dataset
     print("Loading Python code generation dataset...")
     ds_python = DatasetDict.load_from_disk('/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/python')
     
@@ -195,7 +198,6 @@ def main():
     )
     print(f"Python - Train: {len(train_python_processed)}, Test: {len(test_python_processed)}")
     
-    # Merge datasets
     print("Merging multilingual datasets...")
     train_dataset = concatenate_datasets([train_java_processed, train_python_processed]).shuffle(seed=42)
     test_dataset = concatenate_datasets([test_java_processed, test_python_processed]).shuffle(seed=42)
@@ -203,7 +205,6 @@ def main():
     print(f"Total train size: {len(train_dataset)}")
     print(f"Total test size: {len(test_dataset)}")
     
-    # Save processed datasets
     if args.save_processed_data:
         save_dir = f"./processed_datasets_multilingual_codegen"
         os.makedirs(save_dir, exist_ok=True)
@@ -211,13 +212,16 @@ def main():
         test_dataset.save_to_disk(f"{save_dir}/test")
         print(f"Datasets saved to {save_dir}")
     
-    # Training configuration
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_multilingual_cg"
+    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_generation_fft_qwen0_5"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
+        per_device_eval_batch_size=1,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        warmup_steps=100,
+        eval_accumulation_steps=1,
+        eval_do_concat_batches=False,
+        dataloader_pin_memory=False,
+        warmup_steps=1000,
         report_to=[],
         learning_rate=1e-4,
         lr_scheduler_type="cosine",
@@ -232,8 +236,8 @@ def main():
         do_eval=True,
         evaluation_strategy="steps",
         save_strategy="steps",
-        save_steps=2_600,
-        eval_steps=2_600,
+        save_steps=5_000,
+        eval_steps=5_000,
         metric_for_best_model="eval_codebleu",
         greater_is_better=True,
         load_best_model_at_end=True,
@@ -241,10 +245,8 @@ def main():
         remove_unused_columns=False,
     )
     
-    # Clear CUDA cache
     torch.cuda.empty_cache()
     
-    # GPU information
     print(f"\nGPU Information:")
     print(f"Visible GPUs: {torch.cuda.device_count()}")
     for i in range(torch.cuda.device_count()):
@@ -255,19 +257,18 @@ def main():
     trainer = SFTTrainer(
         model,
         packing=True,
-        max_seq_length=300,
+        max_seq_length=512,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=test_dataset.select(range(min(args.eval_samples, len(test_dataset)))),
         dataset_text_field='text',
         compute_metrics=lambda eval_pred: compute_metrics_codebleu(eval_pred, tokenizer),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3,early_stopping_threshold=0.001)]
     )
     
     print("\nStarting multilingual training...")
     trainer.train()
     
-    # Save the model
     trainer.save_model()
     tokenizer.save_pretrained(output_dir)
     
