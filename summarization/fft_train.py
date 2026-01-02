@@ -16,9 +16,9 @@ def parse_args():
     parser.add_argument('--gradient_accumulation_steps', type=int, default=16, help="Gradient accumulation steps")
     parser.add_argument('--sample_size', type=int, default=-1, help="Sample size for training data per language (-1 for full dataset)")
     parser.add_argument('--val_sample_size', type=int, default=-1, help="Sample size for validation data per language (-1 for full dataset)")
-    parser.add_argument('--eval_samples', type=int, default=250, help="Number of samples for evaluation during training")
+    parser.add_argument('--eval_samples', type=int, default=500, help="Number of samples for evaluation during training")
     parser.add_argument('--save_processed_data', type=bool, default=True, help="Save processed datasets")
-    parser.add_argument('--num_train_epochs', type=int, default=3, help="Number of training epochs")
+    parser.add_argument('--num_train_epochs', type=int, default=5, help="Number of training epochs")
     args = parser.parse_args()
     return args
 
@@ -50,7 +50,12 @@ def apply_chat_template_python(example, tokenizer):
 
 def compute_metrics_sacrebleu(eval_pred, tokenizer):
     predictions, labels = eval_pred
-    
+
+    if isinstance(predictions, list):
+        predictions = np.concatenate(predictions, axis=0)
+    if isinstance(labels, list):
+        labels = np.concatenate(labels, axis=0)
+
     if predictions.ndim == 3:
         predictions = np.argmax(predictions, axis=-1)
     
@@ -60,11 +65,9 @@ def compute_metrics_sacrebleu(eval_pred, tokenizer):
     decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
     decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
     
-    # Extract summaries
     decoded_preds = [i.split("SUMMARY: ")[-1].split('DONE')[0].strip() if "SUMMARY:" in i else i.split("Assistant:")[-1].strip() if "Assistant:" in i else i for i in decoded_preds]
     decoded_labels = [i.split("SUMMARY: ")[-1].split('DONE')[0].strip() if "SUMMARY:" in i else i.split("Assistant:")[-1].strip() if "Assistant:" in i else i for i in decoded_labels]
     
-    # Calculate SacreBLEU
     sacrebleu_scores = []
     for pred, label in zip(decoded_preds, decoded_labels):
         try:
@@ -73,7 +76,6 @@ def compute_metrics_sacrebleu(eval_pred, tokenizer):
         except:
             sacrebleu_scores.append(0.0)
     
-    # Generation length
     gen_lengths = [len(tokenizer.tokenize(p)) for p in decoded_preds]
     
     return {
@@ -83,7 +85,11 @@ def compute_metrics_sacrebleu(eval_pred, tokenizer):
 
 def main():
     args = parse_args()
-    
+
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache()
+
     print("="*80)
     print("Multilingual Code Summarization Training")
     print(f"Languages: Java + Python")
@@ -92,7 +98,6 @@ def main():
     
     hf_token = os.environ.get("HF_TOKEN")
     
-    # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.base_model_name, 
         token=hf_token, 
@@ -103,7 +108,6 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
     
-    # Load model
     model = AutoModelForCausalLM.from_pretrained(
         args.base_model_name,
         device_map="auto",
@@ -113,7 +117,6 @@ def main():
     )
     model.config.use_cache = False
     
-    # Load Java dataset
     print("Loading Java dataset...")
     ds_java = load_dataset("google/code_x_glue_ct_code_to_text", "java", cache_dir='datasets')
     
@@ -140,7 +143,6 @@ def main():
     )
     print(f"Java - Train: {len(train_java_processed)}, Test: {len(test_java_processed)}")
     
-    # Load Python dataset
     print("Loading Python dataset...")
     ds_python = load_dataset("google/code_x_glue_ct_code_to_text", "python", cache_dir='datasets')
     
@@ -167,7 +169,6 @@ def main():
     )
     print(f"Python - Train: {len(train_python_processed)}, Test: {len(test_python_processed)}")
     
-    # Merge datasets
     print("Merging multilingual datasets...")
     train_dataset = concatenate_datasets([train_java_processed, train_python_processed]).shuffle(seed=42)
     test_dataset = concatenate_datasets([test_java_processed, test_python_processed]).shuffle(seed=42)
@@ -175,7 +176,6 @@ def main():
     print(f"Total train size: {len(train_dataset)}")
     print(f"Total test size: {len(test_dataset)}")
     
-    # Save processed datasets
     if args.save_processed_data:
         save_dir = f"./processed_datasets_multilingual"
         os.makedirs(save_dir, exist_ok=True)
@@ -183,13 +183,16 @@ def main():
         test_dataset.save_to_disk(f"{save_dir}/test")
         print(f"Datasets saved to {save_dir}")
     
-    # Training configuration
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_multilingual_cs"
+    output_dir = f"results/{args.base_model_name.split('/')[-1]}_summarization_fft_qwen1_5"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
+        per_device_eval_batch_size=1, 
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        warmup_steps=100,
+        eval_accumulation_steps=1,
+        eval_do_concat_batches=False,
+        dataloader_pin_memory=False,
+        warmup_steps=1000,
         report_to=[],
         learning_rate=1e-4,
         lr_scheduler_type="cosine",
@@ -204,8 +207,8 @@ def main():
         do_eval=True,
         evaluation_strategy="steps",
         save_strategy="steps",
-        save_steps=2_600,
-        eval_steps=2_600,
+        save_steps=5_000,
+        eval_steps=5_000,
         metric_for_best_model="eval_sacrebleu",
         greater_is_better=True,
         load_best_model_at_end=True,
@@ -213,33 +216,29 @@ def main():
         remove_unused_columns=False,
     )
     
-    # Clear CUDA cache
     torch.cuda.empty_cache()
     
-    # GPU information
     print(f"\nGPU Information:")
     print(f"Visible GPUs: {torch.cuda.device_count()}")
     for i in range(torch.cuda.device_count()):
         print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
         print(f"  Memory: {torch.cuda.get_device_properties(i).total_memory / 1024**3:.1f} GB")
     
-    # Initialize trainer
     trainer = SFTTrainer(
         model,
         packing=True,
-        max_seq_length=300,
+        max_seq_length=512,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=test_dataset.select(range(min(args.eval_samples, len(test_dataset)))),
         dataset_text_field='text',
         compute_metrics=lambda eval_pred: compute_metrics_sacrebleu(eval_pred, tokenizer),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3,early_stopping_threshold=0.001)]
     )
     
     print("\nStarting multilingual training...")
     trainer.train()
     
-    # Save the model
     trainer.save_model()
     tokenizer.save_pretrained(output_dir)
     
@@ -247,3 +246,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# CUDA_VISIBLE_DEVICES=3 python fft_train.py \
+#   --base_model_name Qwen/Qwen2.5-Coder-0.5B-Instruct \
+#   --device_batch_size 2 \
+#   --gradient_accumulation_steps 16 \
+#   --sample_size -1 \
+#   --val_sample_size -1 \
+#   --eval_samples 500 \
+#   --num_train_epochs 5
