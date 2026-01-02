@@ -147,7 +147,7 @@ def main():
     model.config.use_cache = False
     
     print("Loading Java code generation dataset...")
-    ds_java = DatasetDict.load_from_disk('/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/java')
+    ds_java = DatasetDict.load_from_disk('dataset/codegen_codexglue/java')
     
     if args.sample_size == -1:
         train_java = ds_java["train"].shuffle(seed=42)
@@ -173,7 +173,7 @@ def main():
     print(f"Java - Train: {len(train_java_processed)}, Test: {len(test_java_processed)}")
     
     print("Loading Python code generation dataset...")
-    ds_python = DatasetDict.load_from_disk('/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/python')
+    ds_python = DatasetDict.load_from_disk('dataset/codegen_codexglue/python')
     
     if args.sample_size == -1:
         train_python = ds_python["train"].shuffle(seed=42)
@@ -212,7 +212,7 @@ def main():
         test_dataset.save_to_disk(f"{save_dir}/test")
         print(f"Datasets saved to {save_dir}")
     
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_generation_fft_qwen0_5"
+    output_dir = f"results/{args.base_model_name.split('/')[-1]}_generation_fft_qwen1_5"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
