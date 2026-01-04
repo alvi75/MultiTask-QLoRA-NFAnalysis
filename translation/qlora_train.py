@@ -12,14 +12,14 @@ from codebleu import calc_codebleu
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run bidirectional code translation fine-tuning (Java <-> C#)")
-    parser.add_argument('--base_model_name', type=str, default='Qwen/Qwen2.5-Coder-1.5B-Instruct', help="Base model name")
+    parser.add_argument('--base_model_name', type=str, default='Qwen/Qwen2.5-Coder-14B-Instruct', help="Base model name")
     parser.add_argument('--device_batch_size', type=int, default=2, help="Per device train batch size")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=16, help="Gradient accumulation steps")
     parser.add_argument('--sample_size', type=int, default=-1, help="Sample size for training data (-1 for full dataset)")
     parser.add_argument('--val_sample_size', type=int, default=-1, help="Sample size for validation data (-1 for full dataset)")
-    parser.add_argument('--eval_samples', type=int, default=250, help="Number of samples for evaluation during training")
+    parser.add_argument('--eval_samples', type=int, default=100, help="Number of samples for evaluation during training")
     parser.add_argument('--save_processed_data', type=bool, default=True, help="Save processed datasets")
-    parser.add_argument('--num_train_epochs', type=int, default=3, help="Number of training epochs")
+    parser.add_argument('--num_train_epochs', type=int, default=5, help="Number of training epochs")
     args = parser.parse_args()
     return args
 
@@ -61,34 +61,30 @@ def compute_metrics_codebleu(eval_pred, tokenizer):
     decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
     decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
     
-    # Extract code after "Assistant:"
     decoded_preds = [pred.split("Assistant:")[-1].strip() if "Assistant:" in pred else pred.strip() 
                     for pred in decoded_preds]
     decoded_labels = [label.split("Assistant:")[-1].strip() if "Assistant:" in label else label.strip() 
                      for label in decoded_labels]
     
-    # Calculate CodeBLEU
     codebleu_scores = []
     for pred, label in zip(decoded_preds, decoded_labels):
         try:
-            # Simple language detection (same as multitask)
             if "public" in label or "private" in label:
                 lang = "java"
             elif "namespace" in label or "using System" in label:
                 lang = "c_sharp"
             else:
-                lang = "java"  # default
+                lang = "java"
             
             result = calc_codebleu(
                 references=[label],
                 predictions=[pred],
                 lang=lang
             )
-            codebleu_scores.append(result['codebleu'] * 100)  # Convert to percentage
+            codebleu_scores.append(result['codebleu'] * 100)
         except:
             codebleu_scores.append(0.0)
     
-    # Generation length
     gen_lengths = [len(tokenizer.tokenize(p)) for p in decoded_preds]
     
     return {
@@ -114,7 +110,6 @@ def main():
 
     hf_token = os.environ.get("HF_TOKEN")
     
-    # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.base_model_name, 
         token=hf_token, 
@@ -125,12 +120,10 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
     
-    # Load model
     model = AutoModelForCausalLM.from_pretrained(
         args.base_model_name,
         quantization_config=bnb_config,
         device_map="auto",
-        torch_dtype=torch.bfloat16,
         token=hf_token,
         trust_remote_code=True
     )
@@ -147,7 +140,6 @@ def main():
     model = get_peft_model(model, peft_config)
     model.print_trainable_parameters()
     
-    # Load translation dataset
     print("Loading code translation dataset...")
     ds_translation = load_dataset("google/code_x_glue_cc_code_to_code_trans", cache_dir='datasets')
     
@@ -161,7 +153,6 @@ def main():
     else:
         test_trans = ds_translation["validation"].shuffle(seed=42).select(range(min(args.val_sample_size, len(ds_translation["validation"]))))
     
-    # Process Java to C# translation
     column_names = list(train_trans.features)
     train_java_cs = train_trans.map(
         lambda x: apply_chat_template_java_to_csharp(x, tokenizer),
@@ -175,7 +166,6 @@ def main():
     )
     print(f"Java->C# - Train: {len(train_java_cs)}, Test: {len(test_java_cs)}")
     
-    # Process C# to Java translation
     train_cs_java = train_trans.map(
         lambda x: apply_chat_template_csharp_to_java(x, tokenizer),
         remove_columns=column_names,
@@ -188,7 +178,6 @@ def main():
     )
     print(f"C#->Java - Train: {len(train_cs_java)}, Test: {len(test_cs_java)}")
     
-    # Merge bidirectional datasets
     print("Merging bidirectional translation datasets...")
     train_dataset = concatenate_datasets([train_java_cs, train_cs_java]).shuffle(seed=42)
     test_dataset = concatenate_datasets([test_java_cs, test_cs_java]).shuffle(seed=42)
@@ -196,20 +185,17 @@ def main():
     print(f"Total train size: {len(train_dataset)}")
     print(f"Total test size: {len(test_dataset)}")
     
-    # Print sample examples
     print("\n" + "="*50)
     print("Example processed text:")
     print(train_dataset[0]['text'][:500] + "...")
     print("="*50 + "\n")
     
-    # Save processed datasets
     if args.save_processed_data:
         save_dir = f"./processed_datasets_translation"
         os.makedirs(save_dir, exist_ok=True)
         train_dataset.save_to_disk(f"{save_dir}/train")
         test_dataset.save_to_disk(f"{save_dir}/test")
         
-        # Save sample examples as JSON
         with open(f"{save_dir}/sample_examples.json", "w") as f:
             samples = {
                 "java_to_csharp_sample": train_java_cs[0] if len(train_java_cs) > 0 else {},
@@ -223,8 +209,7 @@ def main():
         
         print(f"Datasets saved to {save_dir}")
     
-    # Training configuration
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_translation_qlora"
+    output_dir = f"results/translations/{args.base_model_name.split('/')[-1]}_translation_qlora_qwen0.5"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
@@ -244,8 +229,8 @@ def main():
         do_eval=True,
         evaluation_strategy="steps",
         save_strategy="steps",
-        save_steps=125,
-        eval_steps=125,
+        save_steps=625,
+        eval_steps=625,
         metric_for_best_model="eval_codebleu",
         greater_is_better=True,
         load_best_model_at_end=True,
@@ -253,34 +238,30 @@ def main():
         remove_unused_columns=False,
     )
     
-    # Clear CUDA cache
     torch.cuda.empty_cache()
     
-    # GPU information
     print(f"\nGPU Information:")
     print(f"Visible GPUs: {torch.cuda.device_count()}")
     for i in range(torch.cuda.device_count()):
         print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
         print(f"  Memory: {torch.cuda.get_device_properties(i).total_memory / 1024**3:.1f} GB")
     
-    # Initialize trainer
     trainer = SFTTrainer(
         model,
         packing=True,
-        max_seq_length=300,
+        max_seq_length=512,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=test_dataset.select(range(min(args.eval_samples, len(test_dataset)))),
         peft_config=peft_config,
         dataset_text_field='text',
         compute_metrics=lambda eval_pred: compute_metrics_codebleu(eval_pred, tokenizer),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3,early_stopping_threshold=0.001)]
     )
     
     print("\nStarting bidirectional translation training...")
     trainer.train()
     
-    # Save the model
     trainer.save_model()
     tokenizer.save_pretrained(output_dir)
     
@@ -288,3 +269,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# CUDA_VISIBLE_DEVICES=4 python qlora_train.py \
+#   --base_model_name Qwen/Qwen2.5-Coder-1.5B-Instruct \
+#   --device_batch_size 4 \
+#   --gradient_accumulation_steps 8 \
+#   --sample_size -1 \
+#   --val_sample_size -1 \
+#   --eval_samples 1200 \
+#   --num_train_epochs 5
