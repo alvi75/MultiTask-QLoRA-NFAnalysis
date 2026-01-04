@@ -6,7 +6,7 @@ from datasets import load_dataset, concatenate_datasets, DatasetDict
 import argparse
 from trl import SFTTrainer
 from peft import get_peft_config, get_peft_model, LoraConfig, TaskType
-from transformers import TrainingArguments, BitsAndBytesConfig, EarlyStoppingCallback
+from transformers import TrainingArguments, EarlyStoppingCallback, BitsAndBytesConfig
 import json
 import sacrebleu
 from codebleu import calc_codebleu
@@ -19,10 +19,10 @@ def parse_args():
     parser.add_argument('--save_processed_data', type=bool, default=True, help="Save processed datasets")
     parser.add_argument('--sample_size', type=int, default=-1, help="Sample size for training data per task (-1 for full dataset)")
     parser.add_argument('--val_sample_size', type=int, default=-1, help="Sample size for validation data per task (-1 for full dataset)")
-    parser.add_argument('--eval_samples', type=int, default=400, help="Number of samples for evaluation during training")
+    parser.add_argument('--eval_samples', type=int, default=500, help="Number of samples for evaluation during training")
     parser.add_argument('--early_stopping_patience', type=int, default=3, help="Early stopping patience")
     parser.add_argument('--early_stopping_threshold', type=float, default=0.001, help="Early stopping threshold")
-    parser.add_argument('--num_train_epochs', type=int, default=10, help="Number of training epochs")
+    parser.add_argument('--num_train_epochs', type=int, default=5, help="Number of training epochs")
     args = parser.parse_args()
     return args
 
@@ -49,21 +49,19 @@ def apply_chat_template(example, tokenizer, language=None, task="summarization",
         
         summary_part = input_text.split("Summary:")[1].split("Signature:")[0].strip()
         signature_part = input_text.split("Signature:")[1].strip()
-        
-        if language == 'java':
-            signature_part = signature_part.rstrip('{').strip()
-        elif language == 'python':
-            signature_part = signature_part.rstrip(':').strip()
             
-        user_prompt = f"Generate {language.capitalize()} code with the following specification:\nSignature: {signature_part}\nDescription: {summary_part}"
-        
+
         if language == 'java':
+
+            user_prompt = f"{summary_part}\n\nMethod to implement:\n{signature_part}"
+
             chat = [
                 {"role": "system", "content": "You are an expert Java developer. Generate complete and efficient Java code based on the given specifications."},
                 {"role": "user", "content": user_prompt},
                 {"role": "assistant", "content": output_text},
             ]
         elif language == 'python':
+            user_prompt = f"{summary_part}\n\nFunction to implement:\n{signature_part}"
             chat = [
                 {"role": "system", "content": "You are an expert Python developer. Generate complete and efficient Python code based on the given specifications."},
                 {"role": "user", "content": user_prompt},
@@ -77,7 +75,6 @@ def apply_chat_template(example, tokenizer, language=None, task="summarization",
             {"role": "assistant", "content": example['cs'] if tgt_lang == 'C#' else example['java']},
         ]
     
-    # Set default chat template if not available
     if tokenizer.chat_template is None:
         tokenizer.chat_template = "{%- for message in messages -%}\n{% if message['role'] == 'system' %}{% if loop.first %}{{ message['content'] + '\n' }}{% endif %}{% elif message['role'] == 'user' %}{{ '\nHuman: ' + message['content'] + '\n\n' }}{% elif message['role'] == 'assistant' %}{{ 'Assistant: ' + message['content'] + '\n\n' }}{% endif %}\n{%- endfor -%}\n{% if add_generation_prompt %}Human: {{ '' }}{% endif %}"
     
@@ -86,7 +83,6 @@ def apply_chat_template(example, tokenizer, language=None, task="summarization",
 def process_code_summarization_datasets(tokenizer, sample_size=2000, val_sample_size=100):
     print("Loading code summarization datasets...")
     
-    # Load Java dataset
     ds_code_java = load_dataset("google/code_x_glue_ct_code_to_text", "java", cache_dir='datasets')
     
     # Handle full dataset or sample
@@ -154,8 +150,8 @@ def process_code_summarization_datasets(tokenizer, sample_size=2000, val_sample_
 def process_code_generation_datasets(tokenizer, sample_size=2000, val_sample_size=100):
     print("Loading code generation datasets...")
     
-    java_path = '/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/java'
-    python_path = '/home/mhaque/QLoRA-Code-Summarization/Multitask/code-generation/codegen_codexglue/python'
+    java_path = 'dataset/codegen_codexglue/java'
+    python_path = 'dataset/codegen_codexglue/python'
     
     # Load Java dataset
     ds_java_gen = DatasetDict.load_from_disk(java_path)
@@ -280,15 +276,17 @@ def setup_multitask_metrics(tokenizer):
     def compute_metrics(eval_pred):
         predictions, labels = eval_pred
         
-        # Convert logits to token ids if needed
+        if isinstance(predictions, list):
+            predictions = np.concatenate(predictions, axis=0)
+        if isinstance(labels, list):
+            labels = np.concatenate(labels, axis=0)
+        
         if predictions.ndim == 3:
             predictions = np.argmax(predictions, axis=-1)
         
-        # Replace -100 with eos token for decoding
         predictions = np.where(predictions != -100, predictions, tokenizer.eos_token_id)
         labels = np.where(labels != -100, labels, tokenizer.eos_token_id)
         
-        # Decode
         decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
         decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
         
@@ -297,19 +295,15 @@ def setup_multitask_metrics(tokenizer):
         codebleu_scores = []   # For CG and CT
         
         for pred, label in zip(decoded_preds, decoded_labels):
-            # Extract content after "Assistant:"
             pred_content = pred.split("Assistant:")[-1].strip() if "Assistant:" in pred else pred
             label_content = label.split("Assistant:")[-1].strip() if "Assistant:" in label else label
             
-            # For summarization, extract between SUMMARY: and DONE
             if "SUMMARY:" in label_content:
                 label_content = label_content.split("SUMMARY:")[-1].split("DONE")[0].strip()
             if "SUMMARY:" in pred_content:
                 pred_content = pred_content.split("SUMMARY:")[-1].split("DONE")[0].strip()
             
-            # Determine task type from content
             if "Summarize this" in label or "SUMMARY:" in label:
-                # Code Summarization - use SacreBLEU
                 try:
                     score = sacrebleu.sentence_bleu(pred_content, [label_content]).score
                     sacrebleu_scores.append(score)
@@ -317,9 +311,7 @@ def setup_multitask_metrics(tokenizer):
                     sacrebleu_scores.append(0.0)
                     
             else:
-                # Code Generation or Translation - use CodeBLEU
                 try:
-                    # Simple language detection
                     if "public" in label_content or "private" in label_content:
                         lang = "java"
                     elif "def " in label_content or "import " in label_content:
@@ -327,14 +319,14 @@ def setup_multitask_metrics(tokenizer):
                     elif "namespace" in label_content or "using System" in label_content:
                         lang = "c_sharp"
                     else:
-                        lang = "java"  # default
+                        lang = "java"
                     
                     result = calc_codebleu(
                         references=[label_content],
                         predictions=[pred_content],
                         lang=lang
                     )
-                    codebleu_scores.append(result['codebleu'] * 100)  # Convert to percentage
+                    codebleu_scores.append(result['codebleu'] * 100)
                 except:
                     codebleu_scores.append(0.0)
         
@@ -360,24 +352,27 @@ def setup_multitask_metrics(tokenizer):
     return compute_metrics
 
 def main():
+    
     args = parse_args()
     
+    import gc
+    gc.collect()
+    torch.cuda.empty_cache()
+    
     print("="*80)
-    print("Running Multilingual Multitask Training with QLoRA")
+    print("Running Multilingual Multitask Training")
     print("Tasks: Code Summarization (SacreBLEU), Generation (CodeBLEU), Translation (CodeBLEU)")
     print("="*80)
 
-    # BitsAndBytes config for 4-bit quantization
     bnb_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type="nf4",
         bnb_4bit_compute_dtype=torch.bfloat16
-    )
+)
     
     hf_token = os.environ.get("HF_TOKEN")
     
-    # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.base_model_name, 
         token=hf_token, 
@@ -407,7 +402,7 @@ def main():
     )
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM, 
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"], # https://qwen.readthedocs.io/en/v1.5/training/SFT/example.html
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
         inference_mode=False, 
         r=8, 
         lora_alpha=16, 
@@ -500,13 +495,16 @@ def main():
     print('\n========== Sequence Length Percentiles ==========')
     print(f"25th: {percentiles[0]:.0f}, 50th: {percentiles[1]:.0f}, 75th: {percentiles[2]:.0f}, 95th: {percentiles[3]:.0f}")
     
-    # Training configuration
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_multitask_qlora"
+    output_dir = f"results/{args.base_model_name.split('/')[-1]}_multitask_qlora_qwen3_with_1_5B_train_param"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
+        per_device_eval_batch_size=1,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        warmup_steps=100,
+        eval_accumulation_steps=1,
+        eval_do_concat_batches=False,
+        dataloader_pin_memory=False,
+        warmup_steps=1000,
         report_to=[],
         learning_rate=1e-4,
         lr_scheduler_type="cosine",
@@ -530,25 +528,21 @@ def main():
         remove_unused_columns=False,
     )
     
-    # Clear CUDA cache
     torch.cuda.empty_cache()
     
-    # GPU information
     print(f"\nGPU Information:")
     print(f"Visible GPUs: {torch.cuda.device_count()}")
     for i in range(torch.cuda.device_count()):
         print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
         print(f"  Memory: {torch.cuda.get_device_properties(i).total_memory / 1024**3:.1f} GB")
     
-    # Initialize trainer
     trainer = SFTTrainer(
         model,
         packing=True,
-        max_seq_length=300,
+        max_seq_length=512,
         args=training_args,
         train_dataset=multitask_train_dataset,
         eval_dataset=multitask_test_dataset.select(range(min(args.eval_samples, len(multitask_test_dataset)))),
-        peft_config=peft_config,
         dataset_text_field='text',
         compute_metrics=compute_metrics,
         callbacks=callbacks
@@ -566,14 +560,14 @@ def main():
     print("Metrics: SacreBLEU (CS), CodeBLEU aggregated (CG/CT)")
     print("="*80 + "\n")
     
-    # Create output directory
     os.makedirs(output_dir, exist_ok=True)
     
-    # Train the model 
+    # Train the model
     print("Starting training...")
     trainer.train()
     
-    # Save the model 
+    
+    # Save the model
     trainer.save_model()
     tokenizer.save_pretrained(output_dir)
     
