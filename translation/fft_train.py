@@ -212,7 +212,7 @@ def main():
         print(f"Datasets saved to {save_dir}")
     
     # Training configuration
-    output_dir = f"/scratch/mhaque/results/{args.base_model_name.split('/')[-1]}_translation"
+    output_dir = f"results/{args.base_model_name.split('/')[-1]}_translation"
     
     training_args = TrainingArguments(
         per_device_train_batch_size=args.device_batch_size,
