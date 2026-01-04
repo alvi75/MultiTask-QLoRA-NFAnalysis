@@ -16,9 +16,9 @@ def parse_args():
     parser.add_argument('--gradient_accumulation_steps', type=int, default=16, help="Gradient accumulation steps")
     parser.add_argument('--sample_size', type=int, default=-1, help="Sample size for training data (-1 for full dataset)")
     parser.add_argument('--val_sample_size', type=int, default=-1, help="Sample size for validation data (-1 for full dataset)")
-    parser.add_argument('--eval_samples', type=int, default=250, help="Number of samples for evaluation during training")
+    parser.add_argument('--eval_samples', type=int, default=100, help="Number of samples for evaluation during training")
     parser.add_argument('--save_processed_data', type=bool, default=True, help="Save processed datasets")
-    parser.add_argument('--num_train_epochs', type=int, default=3, help="Number of training epochs")
+    parser.add_argument('--num_train_epochs', type=int, default=5, help="Number of training epochs")
     args = parser.parse_args()
     return args
 
@@ -232,8 +232,8 @@ def main():
         do_eval=True,
         evaluation_strategy="steps",
         save_strategy="steps",
-        save_steps=125,
-        eval_steps=125,
+        save_steps=625,
+        eval_steps=625,
         metric_for_best_model="eval_codebleu",
         greater_is_better=True,
         load_best_model_at_end=True,
@@ -255,7 +255,7 @@ def main():
     trainer = SFTTrainer(
         model,
         packing=True,
-        max_seq_length=300,
+        max_seq_length=512,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=test_dataset.select(range(min(args.eval_samples, len(test_dataset)))),
