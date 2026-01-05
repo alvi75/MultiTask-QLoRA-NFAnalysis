@@ -82,7 +82,7 @@ def process_all_jsonl_files(base_path):
 
 
 if __name__ == "__main__":
-    BASE_PATH = "code-generation/generation"
+    BASE_PATH = "path/to/generation_results"
     
     print("="*60)
     print("JSONL TO CODE FILES CONVERTER")
