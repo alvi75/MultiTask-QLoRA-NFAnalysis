@@ -152,4 +152,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-# CUDA_VISIBLE_DEVICES=1 python codereval_inference_fft.py --model_path results/Qwen2.5-Coder-1.5B-Instruct_generation_fft_qwen1_5 --input_file CEJavaHumanLabel.jsonl --output_file code-generation/generation/fft/java/generation/qwen1_5.jsonl --language java --num_samples 1 --temperature 0.0
+# Usage:
+#   python infer_generation_fft.py \
+#       --model_path path/to/model \
+#       --input_file path/to/input.jsonl \
+#       --output_file path/to/output.jsonl \
+#       --language java \
+#       --num_samples 1 \
+#       --temperature 0.0
