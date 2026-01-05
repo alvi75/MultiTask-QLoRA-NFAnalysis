@@ -194,4 +194,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python inference_codereval_fft.py --model_path results/Qwen2.5-Coder-3B-Instruct_multitask_qlora_qwen3 --input_jsonl cs_codereval_eval_dataset_java.jsonl --output_file code-summarization/codereval_results/qlora/java/multitask/codereval_qwen3.csv --language java --batch_size 8 --max_new_tokens 128
+# Usage:
+#   python infer_summarization_fft.py \
+#       --model_path path/to/model \
+#       --input_jsonl path/to/input.jsonl \
+#       --output_file path/to/output.csv \
+#       --language java \
+#       --batch_size 8 \
+#       --max_new_tokens 128
