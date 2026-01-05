@@ -201,4 +201,11 @@ if __name__ == "__main__":
     main()
 
 
-# CUDA_VISIBLE_DEVICES=5 python inference_codereval_qlora.py --model_path results/multitask/Qwen2.5-Coder-0.5B-Instruct_multitask_qlora_qwen0.5 --input_jsonl cs_codereval_eval_dataset_java.jsonl --output_file code-summarization/codereval_results/qlora/java/multitask/codereval_qwen0_5 --language java --batch_size 8 --max_new_tokens 128
+# Usage:
+#   python infer_summarization_qlora.py \
+#       --model_path path/to/qlora_adapter \
+#       --input_jsonl path/to/input.jsonl \
+#       --output_file path/to/output \
+#       --language java \
+#       --batch_size 8 \
+#       --max_new_tokens 128
