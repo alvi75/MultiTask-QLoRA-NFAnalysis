@@ -168,4 +168,11 @@ def main():
 if __name__ == "__main__":
     main()
 
-# CUDA_VISIBLE_DEVICES=1 python codereval_inference_qlora.py --model_path results/Qwen2.5-Coder-0.5B-Instruct_multitask_qlora_qwen0.5 --input_file CEJavaHumanLabel.jsonl --output_file code-generation/generation/qlora/java/multitask/qwen0_5.jsonl --language java --num_samples 1 --temperature 0.0
+# Usage:
+#   python infer_generation_qlora.py \
+#       --model_path path/to/qlora_adapter \
+#       --input_file path/to/input.jsonl \
+#       --output_file path/to/output.jsonl \
+#       --language java \
+#       --num_samples 1 \
+#       --temperature 0.0
