@@ -7,11 +7,11 @@ import time
 from collections import Counter
 import numpy as np
 
-INPUT_FILE = "code-summarization/codereval_results/qlora/py/multitask/codereval_qwen1_5.jsonl"
-OUTPUT_FOLDER = "code-summarization/codereval_results/qlora/py/multitask/gpt5_evaluation_results_qwen1_5"
-LANGUAGE = "python"
-SUMMARY_FIELD = "summary_qwen1_5b_qlora"
-MODEL_NAME = "qwen1_5b_qlora"
+INPUT_FILE = "path/to/predictions.jsonl"
+OUTPUT_FOLDER = "path/to/output_folder"
+LANGUAGE = "java"  # or "python"
+SUMMARY_FIELD = "generated_summary"
+MODEL_NAME = "model_name"
 
 NUM_RUNS = 5
 
