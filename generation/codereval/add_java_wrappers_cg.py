@@ -42,4 +42,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python add_java_wrappers_cg.py --input_dir code-generation/generation/qlora/java/multitask/qwen0_5_java_files --output_dir code-generation/generation/qlora/java/multitask/qwen0_5_java_files_wrapped
+# Usage:
+#   python wrap_java_methods.py \
+#       --input_dir path/to/java_files \
+#       --output_dir path/to/java_files_wrapped
