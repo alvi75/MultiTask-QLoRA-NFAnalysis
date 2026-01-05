@@ -18,8 +18,7 @@ def parse_args():
     parser.add_argument('--summary_field', type=str, default='summary_qwen0_5b', 
                        help="Field name for generated summary (e.g., summary_qwen0_5b, summary_qwen0_5b_qlora, summary_qwen1_5b)")
     parser.add_argument('--output_file', type=str, required=True, help="Output file for results")
-    parser.add_argument('--side_checkpoint', type=str, default="/home/mhaque/QLoRA-Code-Summarization/SIDE/Models/baseline/103080", 
-                       help="Path to SIDE model checkpoint (only for Java)")
+    parser.add_argument('--side_checkpoint', type=str, default="path/to/SIDE/checkpoint", help="Path to SIDE model checkpoint (Java only)")
     parser.add_argument('--max_samples', type=int, default=None, help="Maximum samples to evaluate")
     args = parser.parse_args()
     return args
@@ -313,4 +312,9 @@ def main():
 if __name__ == "__main__":
     main()
 
-# python eval.py --dataset_path code-summarization/codereval_results/qlora/java/multitask/qwen0_5.jsonl --language java --summary_field summary_qwen0_5b_qlora --output_file code-summarization/codereval_results/eval_results/qlora/java/multitask/qwen0_5
+# Usage:
+#   python evaluate_summarization_metrics.py \
+#       --dataset_path path/to/predictions.jsonl \
+#       --language java \
+#       --summary_field generated_summary \
+#       --output_file path/to/results
