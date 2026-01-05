@@ -259,7 +259,7 @@ def main():
     with open(results_file, 'w') as f:
         json.dump(results, f, indent=2)
     
-    print(f"\n✓ Results saved to: {results_file}")
+    print(f"\n Results saved to: {results_file}")
     
     print("\n" + "="*80)
     print("Sample Translation (First Example)")
