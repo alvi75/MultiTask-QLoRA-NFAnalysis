@@ -4,9 +4,8 @@ import os
 from glob import glob
 
 
-INPUT_FOLDER = "code-summarization/codereval_results/qlora/java/multitask/gpt5_evaluation_results_qwen3b"
-
-OUTPUT_FILE_NAME = "gpt5_evaluation_results_qwen3b_cs_ct_FINAL_MERGED_MEAN.csv"
+INPUT_FOLDER = "path/to/llm_judge_results"
+OUTPUT_FILE_NAME = "FINAL_MERGED_MEAN.csv"
 
 NUM_RUNS = 5
 
