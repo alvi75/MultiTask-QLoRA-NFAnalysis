@@ -21,6 +21,7 @@ DELAY_BETWEEN_RUNS = 30
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def load_jsonl(file_path):
+    """Load JSONL file"""
     data = []
     with open(file_path, 'r') as f:
         for line in f:
@@ -78,7 +79,7 @@ def call_gpt5(prompt, max_retries=3):
                 for item in response.output:
                     if hasattr(item, 'type') and item.type == 'reasoning':
                         continue
-                    
+
                     if hasattr(item, 'type') and item.type == 'message':
                         if hasattr(item, 'content') and item.content:
                             for content_item in item.content:
@@ -102,7 +103,6 @@ def call_gpt5(prompt, max_retries=3):
     return ""
 
 def extract_scores(model_output):
-    """Extract scores from GPT-5 response"""
     if not model_output:
         return None, None, None, ""
     
@@ -138,15 +138,13 @@ def extract_scores(model_output):
     return scores['CA'], scores['Conciseness'], scores['Fluency'], formatted_string
 
 def evaluate_with_retry(prompt, target_id, max_total_attempts=5):
-    """Keep trying until we get all three scores"""
     for attempt in range(max_total_attempts):
         model_output = call_gpt5(prompt)
         ca, conciseness, fluency, formatted_output = extract_scores(model_output)
-   
+        
         if ca is not None and conciseness is not None and fluency is not None:
             return ca, conciseness, fluency, formatted_output
         
-      
         if attempt < max_total_attempts - 1:
             missing = []
             if ca is None: missing.append("CA")
@@ -155,10 +153,10 @@ def evaluate_with_retry(prompt, target_id, max_total_attempts=5):
             print(f"  {target_id}: Missing {', '.join(missing)}. Retry {attempt + 1}/{max_total_attempts - 1}...")
             time.sleep(1)
     
+
     return ca, conciseness, fluency, formatted_output
 
 def run_single_evaluation(run_number, data):
-    """Run a single evaluation pass"""
     
     print(f"\n{'='*60}")
     print(f"Starting Evaluation Run {run_number} of {NUM_RUNS}")
@@ -169,25 +167,21 @@ def run_single_evaluation(run_number, data):
     blank_count = 0
     
     for item in tqdm(data, desc=f"Run {run_number} Progress"):
-        # Get fields from JSONL
         target_id = item.get('id', '')
         code = item.get('code', '')
         reference_summary = item.get('reference_summary', '')
         generated_summary = item.get(SUMMARY_FIELD, '')
         
-  
         if not generated_summary or len(generated_summary.strip()) < 3:
             skipped_count += 1
             continue
         
-
         prompt = create_prompt(code, generated_summary, LANGUAGE)
         ca, conciseness, fluency, formatted_output = evaluate_with_retry(prompt, target_id)
         
-
         if ca is None or conciseness is None or fluency is None:
             blank_count += 1
-        
+
         if len(results) < 1 and run_number == 1:
             print(f"\nDebug - Extracted: CA={ca}, Conciseness={conciseness}, Fluency={fluency}")
         
@@ -207,7 +201,7 @@ def run_single_evaluation(run_number, data):
         
         time.sleep(0.5)
     
-    print(f"\n Run {run_number} completed:")
+    print(f"\n✓ Run {run_number} completed:")
     print(f"  Evaluated: {len(results)} items")
     print(f"  Skipped: {skipped_count} items")
     print(f"  Items with blanks: {blank_count}")
@@ -221,7 +215,6 @@ def merge_all_runs(all_dfs):
     print(f"Merging All Runs and Calculating Final Scores")
     print(f"{'='*60}")
     
- 
     merged_df = all_dfs[0][['target_id', 'target', 'generated_by', 'summary', 'prompt']].copy()
     
     for run_num in range(1, NUM_RUNS + 1):
@@ -229,7 +222,7 @@ def merge_all_runs(all_dfs):
             col_name = f'gpt-5-mini_{metric}_{run_num}'
             if col_name in all_dfs[run_num - 1].columns:
                 merged_df[col_name] = all_dfs[run_num - 1][col_name]
-    
+
     for metric in ['CA', 'Conciseness', 'Fluency']:
         metric_cols = [f'gpt-5-mini_{metric}_{i}' for i in range(1, NUM_RUNS + 1)]
         
@@ -283,13 +276,13 @@ def main():
         
         run_time = time.time() - run_start
         print(f"  Time: {run_time:.1f} seconds")
-
+        
         if run_num < NUM_RUNS:
             print(f"\n⏳ Waiting {DELAY_BETWEEN_RUNS} seconds before next run...")
             time.sleep(DELAY_BETWEEN_RUNS)
     
     merged_df = merge_all_runs(all_dfs)
-    
+
     base_name = os.path.basename(OUTPUT_FOLDER)
     merged_file = os.path.join(OUTPUT_FOLDER, f"{base_name}_FINAL_MERGED.csv")
     merged_df.to_csv(merged_file, index=False)
