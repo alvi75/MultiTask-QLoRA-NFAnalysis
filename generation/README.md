@@ -160,15 +160,3 @@ python codereval/add_java_wrappers_cg.py \
     --input_dir results/java_predictions_java_files \
     --output_dir results/java_predictions_java_files_wrapped
 ```
-
-## Requirements
-
-```
-torch
-transformers
-datasets
-trl
-peft
-bitsandbytes
-codebleu
-```
