@@ -108,9 +108,14 @@ python codereval/filter_codereval_ids.py \
 
 Extract generated code from JSONL to individual files for static analysis:
 
+1. Edit `BASE_PATH` in the script:
+```python
+BASE_PATH = "path/to/generation_results"
+```
+
+2. Run:
 ```bash
-python codereval/extract_code_from_jsonl.py \
-    --input_dir path/to/jsonl_files
+python codereval/extract_code_from_jsonl.py
 ```
 
 This creates a folder with individual code files (`.java` or `.py`) for each prediction.
@@ -147,9 +152,8 @@ python codereval/filter_codereval_ids.py \
     --input_dir results \
     --discard_ids_file codereval/ids_to_discard.json
 
-# 4. Extract code files
-python codereval/extract_code_from_jsonl.py \
-    --input_dir results
+# 4. Extract code files (edit BASE_PATH in script first)
+python codereval/extract_code_from_jsonl.py
 
 # 5. Wrap Java files for static analysis
 python codereval/add_java_wrappers_cg.py \
