@@ -139,14 +139,3 @@ Uses `google/code_x_glue_cc_code_to_code_trans` dataset:
 - Java ↔ C# parallel corpus
 - Train/Validation/Test splits
 
-## Requirements
-
-```
-torch
-transformers
-datasets
-trl
-peft
-bitsandbytes
-codebleu
-```
