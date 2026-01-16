@@ -9,18 +9,14 @@ code-generation/
 ├── fft_train.py                 # Full fine-tuning training script
 ├── qlora_train.py               # QLoRA training script
 ├── codereval/
-│   ├── infer_generation_fft.py      # Inference for FFT models
-│   ├── infer_generation_qlora.py    # Inference for QLoRA models
-│   ├── filter_codereval_ids.py      # Filter unreliable test cases
-│   ├── extract_code_from_jsonl.py   # Extract code to individual files
-│   ├── add_java_wrappers_cg.py      # Add class wrappers for static analysis
-│   ├── ids_to_discard.json          # IDs with unreliable tests
-│   ├── CEJavaHumanLabel.jsonl       # CoderEval Java benchmark
-│   └── CEPythonHumanLabel.jsonl     # CoderEval Python benchmark
-└── dataset/
-    └── codegen_codexglue/
-        ├── java/
-        └── python/
+    ├── infer_generation_fft.py      # Inference for FFT models
+    ├── infer_generation_qlora.py    # Inference for QLoRA models
+    ├── filter_codereval_ids.py      # Filter unreliable test cases
+    ├── extract_code_from_jsonl.py   # Extract code to individual files
+    ├── add_java_wrappers_cg.py      # Add class wrappers for static analysis
+    ├── ids_to_discard.json          # IDs with unreliable tests
+    ├── CEJavaHumanLabel.jsonl       # CoderEval Java benchmark
+    └── CEPythonHumanLabel.jsonl     # CoderEval Python benchmark
 ```
 
 ## Step 1: Training
