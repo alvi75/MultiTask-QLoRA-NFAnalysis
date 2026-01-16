@@ -12,7 +12,7 @@ code-summarization/
     ├── infer_summarization_fft.py       # Inference for FFT models
     ├── infer_summarization_qlora.py     # Inference for QLoRA models
     ├── evaluate_summarization_metrics.py # Compute BLEU, ROUGE, METEOR, etc.
-    ├── evaluate_summarization_llm_judge.py  # LLM-as-judge evaluation (GPT-5)
+    ├── evaluate_summarization_llm_judge.py  # LLM-as-judge evaluation (GPT-5 mini)
     ├── aggregate_llm_judge_scores.py    # Aggregate LLM judge scores using mean
     ├── cs_codereval_eval_dataset_java_v2.jsonl  # CoderEval Java benchmark
     └── cs_codereval_eval_dataset_py_v2.jsonl    # CoderEval Python benchmark
