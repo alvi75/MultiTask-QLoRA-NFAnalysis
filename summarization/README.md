@@ -9,13 +9,17 @@ code-summarization/
 ├── fft_train.py                 # Full fine-tuning training script
 ├── qlora_train.py               # QLoRA training script
 ├── codereval/
-    ├── infer_summarization_fft.py       # Inference for FFT models
-    ├── infer_summarization_qlora.py     # Inference for QLoRA models
-    ├── evaluate_summarization_metrics.py # Compute BLEU, ROUGE, METEOR, etc.
-    ├── evaluate_summarization_llm_judge.py  # LLM-as-judge evaluation (GPT-5 mini)
-    ├── aggregate_llm_judge_scores.py    # Aggregate LLM judge scores using mean
-    ├── cs_codereval_eval_dataset_java_v2.jsonl  # CoderEval Java benchmark
-    └── cs_codereval_eval_dataset_py_v2.jsonl    # CoderEval Python benchmark
+│   ├── infer_summarization_fft.py       # Inference for FFT models
+│   ├── infer_summarization_qlora.py     # Inference for QLoRA models
+│   ├── evaluate_summarization_metrics.py # Compute BLEU, ROUGE, METEOR, etc.
+│   ├── evaluate_summarization_llm_judge.py  # LLM-as-judge evaluation (GPT-5)
+│   ├── aggregate_llm_judge_scores.py    # Aggregate LLM judge scores using mean
+│   ├── cs_codereval_eval_dataset_java_v2.jsonl  # CoderEval Java benchmark
+│   └── cs_codereval_eval_dataset_py_v2.jsonl    # CoderEval Python benchmark
+└── dataset/
+    └── code_x_glue_ct_code_to_text/
+        ├── java/
+        └── python/
 ```
 
 ## Step 1: Training
@@ -106,7 +110,10 @@ python codereval/evaluate_summarization_metrics.py \
 - `--language`: Programming language (`java` or `python`)
 - `--summary_field`: Field name containing generated summaries
 - `--output_file`: Output path for results (without extension)
-- `--side_checkpoint`: Path to SIDE model checkpoint (Java only)
+- `--side_checkpoint`: Path to SIDE model checkpoint (Java only, default: `path/to/SIDE/checkpoint`)
+
+**Note on SIDE Score:**
+SIDE (Semantic Identifier for Documentation Evaluation) is computed only for Java. You need to download the SIDE model checkpoint from the [SIDE repository](https://github.com/antonio-mastropaolo/code-summarization-metric) and provide the path via `--side_checkpoint`.
 
 **Output:**
 - `<output_file>.txt`: Human-readable results
@@ -191,9 +198,26 @@ python codereval/aggregate_llm_judge_scores.py
 - **ROUGE-1/2/L**: Recall-oriented metrics
 - **chrF**: Character-level F-score
 - **BERTScore**: Contextual embedding similarity
-- **SIDE**: Semantic similarity for code summaries (Java only)
+- **SIDE**: Semantic similarity for code summaries (Java only) - [GitHub](https://github.com/antonio-mastropaolo/code-summarization-metric)
 
 ### LLM-as-Judge Metrics
 - **Content Adequacy**: How well the summary captures code functionality
 - **Conciseness**: Absence of unnecessary information
 - **Fluency**: Readability and clarity
+
+## Requirements
+
+```
+torch
+transformers
+datasets
+trl
+peft
+bitsandbytes
+sacrebleu
+rouge-score
+bert-score
+nltk
+openai
+sentence-transformers  # Required for SIDE score
+```
