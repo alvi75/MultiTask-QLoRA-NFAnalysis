@@ -9,14 +9,18 @@ code-generation/
 ├── fft_train.py                 # Full fine-tuning training script
 ├── qlora_train.py               # QLoRA training script
 ├── codereval/
-    ├── infer_generation_fft.py      # Inference for FFT models
-    ├── infer_generation_qlora.py    # Inference for QLoRA models
-    ├── filter_codereval_ids.py      # Filter unreliable test cases
-    ├── extract_code_from_jsonl.py   # Extract code to individual files
-    ├── add_java_wrappers_cg.py      # Add class wrappers for static analysis
-    ├── ids_to_discard.json          # IDs with unreliable tests
-    ├── CEJavaHumanLabel.jsonl       # CoderEval Java benchmark
-    └── CEPythonHumanLabel.jsonl     # CoderEval Python benchmark
+│   ├── infer_generation_fft.py      # Inference for FFT models
+│   ├── infer_generation_qlora.py    # Inference for QLoRA models
+│   ├── filter_codereval_ids.py      # Filter unreliable test cases
+│   ├── extract_code_from_jsonl.py   # Extract code to individual files
+│   ├── add_java_wrappers_cg.py      # Add class wrappers for static analysis
+│   ├── ids_to_discard.json          # IDs with unreliable tests
+│   ├── CEJavaHumanLabel.jsonl       # CoderEval Java benchmark
+│   └── CEPythonHumanLabel.jsonl     # CoderEval Python benchmark
+└── dataset/
+    └── codegen_codexglue/
+        ├── java/
+        └── python/
 ```
 
 ## Step 1: Training
@@ -130,6 +134,31 @@ The wrapped files can then be analyzed with:
 - **PMD**: For code quality metrics
 - **SonarCloud**: For static code analysis
 
+## Step 6: Evaluate with CoderEval (Pass@k)
+
+For functional correctness evaluation (Pass@k), we use the [CoderEval](https://github.com/CoderEval/CoderEval) benchmark platform.
+
+### Setup CoderEval Environment
+
+1. Download the Docker environment from [Google Drive](https://drive.google.com/drive/folders/1F8M7e25MgHZ3XJ4RSOGWindFSWC5QOvI?usp=sharing)
+
+2. Import the Docker image:
+```bash
+docker load -i codereval_docker.tar
+```
+
+3. Run the Docker container with your predictions:
+```bash
+docker run -v /path/to/predictions:/data codereval
+```
+
+### CoderEval Resources
+- **Repository**: https://github.com/CoderEval/CoderEval
+- **Benchmark Data**: `CoderEval4Java.json`, `CoderEval4Python.json`
+- **Docker Environment**: Contains pre-configured runtime for 43 Python projects and 10 Java projects
+
+For detailed instructions on running evaluations, refer to the [CoderEval README](https://github.com/CoderEval/CoderEval).
+
 ## Complete Pipeline Example
 
 ```bash
@@ -155,4 +184,27 @@ python codereval/extract_code_from_jsonl.py
 python codereval/add_java_wrappers_cg.py \
     --input_dir results/java_predictions_java_files \
     --output_dir results/java_predictions_java_files_wrapped
+
+# 6. Evaluate with CoderEval Docker (see Step 6 for setup)
+```
+
+## Metrics
+
+### Functional Correctness
+- **Pass@k**: Probability that at least one of k generated samples passes all test cases (computed via [CoderEval](https://github.com/CoderEval/CoderEval))
+
+### Code Quality (Static Analysis)
+- **PMD**: Code quality violations and metrics
+- **SonarCloud**: Code smells, bugs, vulnerabilities
+
+## Requirements
+
+```
+torch
+transformers
+datasets
+trl
+peft
+bitsandbytes
+codebleu
 ```
