@@ -1,0 +1,220 @@
+[1] "********************** QWEN 0.5B: ST-QLoRA vs MT-QLoRA (Java to C#) *********************************"
+[1] "CodeBLEU - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.123649 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.07509655 0.17161657 
+
+[1] "Lines_of_Code - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.007641 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04147860  0.05672376 
+
+[1] "Token_Count - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.015354 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03476174  0.06539271 
+
+[1] "Detection_Rate - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.004 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.005150732  0.013150063 
+
+[1] "Cyclomatic_Complexity - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.003177 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03461550  0.04096043 
+
+[1] "Syntax_Errors - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.024451 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01414630  0.06297554 
+
+[1] "Maintainability - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.004127 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03925071  0.03100690 
+
+[1] "********************** QWEN 1.5B: ST-QLoRA vs MT-QLoRA (Java to C#) *********************************"
+[1] "CodeBLEU - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.045057 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.003743259  0.093643163 
+
+[1] "Lines_of_Code - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.004918 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04419474  0.05400702 
+
+[1] "Token_Count - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.009888 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04019767  0.05992410 
+
+[1] "Detection_Rate - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04490259 -0.01508406 
+
+[1] "Cyclomatic_Complexity - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.007866 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04679925  0.03109111 
+
+[1] "Syntax_Errors - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.010172 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05020773  0.02989637 
+
+[1] "Maintainability - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.033518 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.002501526  0.069450665 
+
+[1] "********************** QWEN 3B: ST-QLoRA vs MT-QLoRA (Java to C#) *********************************"
+[1] "CodeBLEU - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.053593 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.003095038 0.103818325 
+
+[1] "Lines_of_Code - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.039828 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.00920774  0.08867265 
+
+[1] "Token_Count - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.046054 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.004023358  0.095900949 
+
+[1] "Detection_Rate - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.041 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.02318135 0.05879261 
+
+[1] "Cyclomatic_Complexity - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.040416 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.001451343 0.079258120 
+
+[1] "Syntax_Errors - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.047901 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07386741 -0.02186968 
+
+[1] "Maintainability - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.180479 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.2215521 -0.1387666 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+    Wilcoxon.p
+1 1.059228e-18
+2 1.000000e+00
+3 3.809574e-01
+4 1.000000e+00
+5 1.000000e+00
+6 1.271144e-02
+7 1.000000e+00
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+    Wilcoxon.p
+1 7.836594e-03
+2 1.000000e+00
+3 1.000000e+00
+4 4.905369e-04
+5 1.000000e+00
+6 1.000000e+00
+7 1.085334e-05
+[1] "Qwen 3B Results (Adjusted P-values):"
+    Wilcoxon.p
+1 2.657765e-02
+2 1.030900e-03
+3 4.580057e-03
+4 1.319055e-05
+5 1.583584e-02
+6 3.585614e-04
+7 1.204819e-12

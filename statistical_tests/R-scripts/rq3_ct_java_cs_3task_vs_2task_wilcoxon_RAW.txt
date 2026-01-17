@@ -1,0 +1,147 @@
+[1] "********************** QWEN 3B: MT-QLoRA (3-task) vs MT-QLoRA (CG+CT) (Java to C#) *********************************"
+[1] "CodeBLEU - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.271374 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3188217 -0.2225696 
+
+[1] "Lines_of_Code - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.058086 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.106789073 -0.009104856 
+
+[1] "Token_Count - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.056607 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10644398 -0.00648632 
+
+[1] "Detection_Rate - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.052 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06860478 -0.03536641 
+
+[1] "Cyclomatic_Complexity - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.059052 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.09778285 -0.02014254 
+
+[1] "Syntax_Errors - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.176525 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.2112205 -0.1413852 
+
+[1] "Maintainability - 3-task vs CG+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.565741 (large)
+95 percent confidence interval:
+    lower     upper 
+0.5249695 0.6039220 
+
+[1] "********************** QWEN 3B: MT-QLoRA (3-task) vs MT-QLoRA (CS+CT) (Java to C#) *********************************"
+[1] "CodeBLEU - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.688351 (large)
+95 percent confidence interval:
+    lower     upper 
+0.6476169 0.7251619 
+
+[1] "Lines_of_Code - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.81616 (large)
+95 percent confidence interval:
+    lower     upper 
+0.7884800 0.8405407 
+
+[1] "Token_Count - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.830814 (large)
+95 percent confidence interval:
+    lower     upper 
+0.8034651 0.8546639 
+
+[1] "Detection_Rate - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.738 (large)
+95 percent confidence interval:
+    lower     upper 
+0.7076157 0.7656601 
+
+[1] "Cyclomatic_Complexity - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.757868 (large)
+95 percent confidence interval:
+    lower     upper 
+0.7275644 0.7852199 
+
+[1] "Syntax_Errors - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.059002 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.03376451 0.08416429 
+
+[1] "Maintainability - 3-task vs CS+CT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.424352 (medium)
+95 percent confidence interval:
+    lower     upper 
+0.3867028 0.4605890 
+
+[1] "***************************************************************************"
+[1] "3-task vs CG+CT Results (Adjusted P-values):"
+    Wilcoxon.p
+1 4.370520e-58
+2 1.729618e-06
+3 3.609194e-05
+4 6.184317e-10
+5 3.773170e-06
+6 3.428307e-34
+7 6.685458e-91
+[1] "3-task vs CS+CT Results (Adjusted P-values):"
+     Wilcoxon.p
+1 3.446321e-114
+2 4.705320e-122
+3 5.816120e-126
+4 2.904249e-158
+5 1.255683e-130
+6  5.865368e-07
+7  8.320196e-59

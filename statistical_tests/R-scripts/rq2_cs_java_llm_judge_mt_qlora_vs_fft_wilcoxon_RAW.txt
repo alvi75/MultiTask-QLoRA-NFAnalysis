@@ -1,0 +1,100 @@
+[1] "********************** QWEN 0.5B: MT-QLoRA vs MT-FFT (Java LLM Judge) **********************"
+[1] "CA - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0009182736 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1568416  0.1586325 
+
+[1] "Conciseness - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.008366493 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07045191  0.08708108 
+
+[1] "Fluency - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.03571064 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1246329  0.1942364 
+
+[1] "********************** QWEN 1.5B: MT-QLoRA vs MT-FFT (Java LLM Judge) **********************"
+[1] "CA - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.04550556 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1139171  0.2026435 
+
+[1] "Conciseness - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.06081012 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01992456  0.14075690 
+
+[1] "Fluency - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.08744006 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07331074  0.24376245 
+
+[1] "********************** QWEN 3B: MT-QLoRA vs MT-FFT (Java LLM Judge) **********************"
+[1] "CA - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.08417508 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.0750643  0.2392281 
+
+[1] "Conciseness - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.03346597 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04940641  0.11588070 
+
+[1] "Fluency - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.1858994 (small)
+95 percent confidence interval:
+     lower      upper 
+0.02443447 0.33791198 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1          1
+2          1
+3          1
+[1] "Qwen 1.5B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1  0.7076346
+2  0.3966869
+3  0.3966869
+[1] "Qwen 3B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1 0.24750857
+2 0.24750857
+3 0.05487875

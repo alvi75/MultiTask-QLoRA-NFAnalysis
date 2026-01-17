@@ -1,0 +1,28 @@
+================================================================================
+RQ1: Pass@1 McNemar Test - ST-QLoRA vs MT-QLoRA
+================================================================================
+
+Comparison: Python 0.5B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 22 , ST_only= 8 , MT_only= 8 , both_fail= 149 
+  Original P-value: 1.000000 , Adjusted P-value: 1.000000 , Odds Ratio: 1.0000 
+
+Comparison: Python 1.5B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 27 , ST_only= 5 , MT_only= 9 , both_fail= 149 
+  Original P-value: 0.422678 , Adjusted P-value: 1.000000 , Odds Ratio: 0.5789 
+
+Comparison: Python 3B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 34 , ST_only= 5 , MT_only= 6 , both_fail= 144 
+  Original P-value: 1.000000 , Adjusted P-value: 1.000000 , Odds Ratio: 0.8462 
+
+Comparison: Java 0.5B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 23 , ST_only= 17 , MT_only= 14 , both_fail= 130 
+  Original P-value: 0.719438 , Adjusted P-value: 1.000000 , Odds Ratio: 1.2069 
+
+Comparison: Java 1.5B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 25 , ST_only= 22 , MT_only= 10 , both_fail= 127 
+  Original P-value: 0.051830 , Adjusted P-value: 0.310980 , Odds Ratio: 2.1429 
+
+Comparison: Java 3B ST-QLoRA vs MT-QLoRA
+  Contingency: both_pass= 46 , ST_only= 9 , MT_only= 13 , both_fail= 116 
+  Original P-value: 0.522431 , Adjusted P-value: 1.000000 , Odds Ratio: 0.7037 
+

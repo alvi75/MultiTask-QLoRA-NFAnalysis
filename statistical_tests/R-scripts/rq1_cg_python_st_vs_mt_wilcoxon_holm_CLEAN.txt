@@ -1,0 +1,65 @@
+================================================================================
+RQ1: Code Generation - Python (ST-QLoRA vs MT-QLoRA) - Wilcoxon Signed-Rank Test
+================================================================================
+
+------------------------------------------------------------------------------
+QWEN 0.5B: ST-QLoRA vs MT-QLoRA
+------------------------------------------------------------------------------
+Metric               p-value    Cliff's d  Significant
+------------------------------------------------------------------------------
+Lizard_LoC            1.0000       0.0029           No
+Lizard_ToK            1.0000      -0.0161           No
+Lizard_DR                 NA       0.0000           NA
+Lizard_CyC            1.0000      -0.0090           No
+Pylint_Err            0.5355      -0.0473           No
+Pylint_War            1.0000      -0.0048           No
+Pylint_Conv           1.0000      -0.0003           No
+Pylint_Ref            1.0000      -0.0038           No
+Sonar_SecHot              NA       0.0000           NA
+Sonar_Rel             0.5005      -0.0209           No
+Sonar_Main            1.0000      -0.0392           No
+Sonar_CyC             1.0000      -0.0166           No
+Sonar_CoC             1.0000      -0.0044           No
+
+------------------------------------------------------------------------------
+QWEN 1.5B: ST-QLoRA vs MT-QLoRA
+------------------------------------------------------------------------------
+Metric               p-value    Cliff's d  Significant
+------------------------------------------------------------------------------
+Lizard_LoC            1.0000      -0.0330           No
+Lizard_ToK            1.0000      -0.0058           No
+Lizard_DR                 NA       0.0000           NA
+Lizard_CyC            1.0000      -0.0294           No
+Pylint_Err            1.0000      -0.0082           No
+Pylint_War            1.0000      -0.0453           No
+Pylint_Conv           1.0000      -0.0202           No
+Pylint_Ref            1.0000      -0.0151           No
+Sonar_SecHot              NA       0.0000           NA
+Sonar_Rel             1.0000       0.0000           No
+Sonar_Main            0.1561      -0.0744           No
+Sonar_CyC             1.0000      -0.0172           No
+Sonar_CoC             0.9356      -0.0509           No
+
+------------------------------------------------------------------------------
+QWEN 3B: ST-QLoRA vs MT-QLoRA
+------------------------------------------------------------------------------
+Metric               p-value    Cliff's d  Significant
+------------------------------------------------------------------------------
+Lizard_LoC            1.0000       0.0308           No
+Lizard_ToK            1.0000      -0.0148           No
+Lizard_DR                 NA       0.0000           NA
+Lizard_CyC            1.0000      -0.0071           No
+Pylint_Err            0.1594      -0.0614           No
+Pylint_War            1.0000       0.0428           No
+Pylint_Conv           1.0000      -0.0356           No
+Pylint_Ref            1.0000      -0.0196           No
+Sonar_SecHot              NA       0.0000           NA
+Sonar_Rel             0.2535      -0.0263           No
+Sonar_Main            1.0000       0.0281           No
+Sonar_CyC             1.0000       0.0118           No
+Sonar_CoC             1.0000       0.0275           No
+
+================================================================================
+Note: p-values are Holm-Bonferroni corrected
+Cliff's Delta interpretation: |d| < 0.147 (N), < 0.33 (S), < 0.474 (M), >= 0.474 (L)
+================================================================================

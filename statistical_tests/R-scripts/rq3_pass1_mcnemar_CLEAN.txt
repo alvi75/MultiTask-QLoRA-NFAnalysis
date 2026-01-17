@@ -1,0 +1,29 @@
+================================================================================
+RQ3: Pass@1 McNemar Test - 3-task vs 2-task (Code Generation, Qwen 3B)
+================================================================================
+
+------------------------------------------------------------------------------
+(a) Python: 3-task vs 2-task
+------------------------------------------------------------------------------
+Comparison                P-value  Adj P-value   Odds Ratio 3task_only 2task_only
+------------------------------------------------------------------------------
+3-task vs CG+CS          0.783530     1.000000       1.1176         28         25
+3-task vs CG+CT          1.000000     1.000000       1.0000          7          7
+
+------------------------------------------------------------------------------
+(b) Java: 3-task vs 2-task
+------------------------------------------------------------------------------
+Comparison                P-value  Adj P-value   Odds Ratio 3task_only 2task_only
+------------------------------------------------------------------------------
+3-task vs CG+CS          0.522431     1.000000       0.7037          9         13
+3-task vs CG+CT          0.169811     0.679242       0.5429          9         17
+
+================================================================================
+Note: P-values are Holm-Bonferroni corrected across all 4 comparisons
+Odds Ratio = (3task_only + 0.5) / (2task_only + 0.5)
+  OR > 1: 3-task passes more often when they disagree
+  OR < 1: 2-task passes more often when they disagree
+  OR = 1: No difference in discordant pairs
+3task_only = cases where 3-task passes but 2-task fails
+2task_only = cases where 2-task passes but 3-task fails
+================================================================================

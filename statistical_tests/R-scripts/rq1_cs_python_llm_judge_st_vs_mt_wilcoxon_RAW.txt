@@ -1,0 +1,100 @@
+[1] "********************** QWEN 0.5B: ST-QLoRA vs MT-QLoRA (Python LLM Judge) **********************"
+[1] "CA - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0886 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06969043  0.24253844 
+
+[1] "Conciseness - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0129 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1017149  0.1271769 
+
+[1] "Fluency - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0704 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.09105746  0.22825113 
+
+[1] "********************** QWEN 1.5B: ST-QLoRA vs MT-QLoRA (Python LLM Judge) **********************"
+[1] "CA - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0117 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1426472  0.1654916 
+
+[1] "Conciseness - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0466 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15701618  0.06496679 
+
+[1] "Fluency - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0038 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1552917  0.1626996 
+
+[1] "********************** QWEN 3B: ST-QLoRA vs MT-QLoRA (Python LLM Judge) **********************"
+[1] "CA - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.0987 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.24949273  0.05676593 
+
+[1] "Conciseness - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.0539 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06343839  0.16976849 
+
+[1] "Fluency - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.0118 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1709513  0.1479514 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1 0.09928978
+2 0.45470724
+3 0.20425721
+[1] "Qwen 1.5B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1  0.6659164
+2  0.6058321
+3  0.9419093
+[1] "Qwen 3B Results (holm Adjusted P-values):"
+  Wilcoxon.p
+1  0.3924898
+2  1.0000000
+3  1.0000000

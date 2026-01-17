@@ -1,0 +1,190 @@
+[1] "********************** QWEN 0.5B: MT-QLoRA vs MT-FFT (Java Summarization) *********************************"
+[1] "BLEU - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01132537 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1713477  0.1492792 
+
+[1] "METEOR - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.0348944 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1262934  0.1942869 
+
+[1] "Rouge-L - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1029487 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05933068  0.25992676 
+
+[1] "chrF - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0184675 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1784760  0.1424925 
+
+[1] "BERTScore - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.009386797 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1513793  0.1696691 
+
+[1] "SIDE - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.09692888 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06531768  0.25418248 
+
+[1] "********************** QWEN 1.5B: MT-QLoRA vs MT-FFT (Java Summarization) *********************************"
+[1] "BLEU - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.008060402 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1530023  0.1687060 
+
+[1] "METEOR - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02989491 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1315048  0.1897506 
+
+[1] "Rouge-L - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.01673299 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1440576  0.1766627 
+
+[1] "chrF - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.04081216 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1205160  0.2000401 
+
+[1] "BERTScore - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02581369 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1352742  0.1855721 
+
+[1] "SIDE - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.08570554 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07495562  0.24202981 
+
+[1] "********************** QWEN 3B: MT-QLoRA vs MT-FFT (Java Summarization) *********************************"
+[1] "BLEU - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.05458627 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.2137714  0.1074227 
+
+[1] "METEOR - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.02601775 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1349871  0.1856840 
+
+[1] "Rouge-L - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.0359147 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1255850  0.1955601 
+
+[1] "chrF - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.01785532 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1430750  0.1778658 
+
+[1] "BERTScore - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.008366493 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1524773  0.1687785 
+
+[1] "SIDE - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.0255076 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1355183  0.1852207 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+  Wilcoxon.p
+1 1.00000000
+2 0.62186943
+3 0.01391104
+4 1.00000000
+5 1.00000000
+6 0.12281585
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+  Wilcoxon.p
+1 1.00000000
+2 1.00000000
+3 1.00000000
+4 1.00000000
+5 1.00000000
+6 0.05012313
+[1] "Qwen 3B Results (Adjusted P-values):"
+  Wilcoxon.p
+1  1.0000000
+2  1.0000000
+3  0.5607095
+4  1.0000000
+5  1.0000000
+6  1.0000000

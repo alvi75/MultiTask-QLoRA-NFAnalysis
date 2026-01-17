@@ -1,0 +1,490 @@
+[1] "********************** QWEN 0.5B: MT-QLoRA vs MT-FFT (C# to Java) *********************************"
+[1] "CodeBLEU - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.104259 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15149403 -0.05654889 
+
+[1] "Lines_of_Code - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.053368 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.004624424 0.101858574 
+
+[1] "Token_Count - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.046603 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.003411902  0.096385328 
+
+[1] "Detection_Rate - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.01 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.00172414 0.01827449 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.029113 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.008937388  0.067079202 
+
+[1] "bestpractices - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.05446597 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1546814  0.0468589 
+
+[1] "codestyle - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.06232278 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17745706  0.05449448 
+
+[1] "design - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02392486 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08276415  0.13007167 
+
+[1] "errorprone - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03163398 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10264022  0.03969301 
+
+[1] "multithreading - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03349607  0.02263506 
+
+[1] "performance - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01651111 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06290411  0.02995310 
+
+[1] "Security_Hotspots - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.00594 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.016602065  0.004723416 
+
+[1] "Maintainability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.013261 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04838441  0.02189516 
+
+[1] "CyC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.000635 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04034158  0.04160945 
+
+[1] "CoC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.018935 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01717230  0.05499298 
+
+[1] "********************** QWEN 1.5B: MT-QLoRA vs MT-FFT (C# to Java) *********************************"
+[1] "CodeBLEU - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.013299 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06096776  0.03443028 
+
+[1] "Lines_of_Code - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.011009 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03760639  0.05957240 
+
+[1] "Token_Count - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.012206 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03765286  0.06200424 
+
+[1] "Detection_Rate - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.007 (negligible)
+95 percent confidence interval:
+        lower         upper 
+-0.0005647107  0.0145639096 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.008427 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04659696  0.02976753 
+
+[1] "bestpractices - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0747578 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17398947  0.02597685 
+
+[1] "codestyle - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1028474 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.21757827  0.01468698 
+
+[1] "design - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01382325 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.11937892  0.09204142 
+
+[1] "errorprone - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04120392 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10930799  0.02728518 
+
+[1] "multithreading - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01645203 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05281634  0.01995586 
+
+[1] "performance - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0376595 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.085070553  0.009921707 
+
+[1] "Security_Hotspots - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.005066 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.005421375  0.015552261 
+
+[1] "Maintainability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.027655 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.006481997  0.061727615 
+
+[1] "CyC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.021359 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01909839  0.06174656 
+
+[1] "CoC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.00587 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03046759  0.04219210 
+
+[1] "********************** QWEN 3B: MT-QLoRA vs MT-FFT (C# to Java) *********************************"
+[1] "CodeBLEU - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.313806 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3625409 -0.2633596 
+
+[1] "Lines_of_Code - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.017596 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06632469  0.03121642 
+
+[1] "Token_Count - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.018707 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06854540  0.03122454 
+
+[1] "Detection_Rate - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.017 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.006899797 0.027096735 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -2.8e-05 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03901323  0.03895731 
+
+[1] "bestpractices - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.01323251 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08744767  0.11364510 
+
+[1] "codestyle - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01255317 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1287131  0.1039466 
+
+[1] "design - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.04572306 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15078659  0.06036183 
+
+[1] "errorprone - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.007266068 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07662999  0.06216784 
+
+[1] "multithreading - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02263506  0.03349607 
+
+[1] "performance - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.05517486 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10119357 -0.00892054 
+
+[1] "Security_Hotspots - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.006006 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.014288229  0.002277053 
+
+[1] "Maintainability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.435096 (medium)
+95 percent confidence interval:
+     lower      upper 
+-0.4753208 -0.3930561 
+
+[1] "CyC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.463582 (medium)
+95 percent confidence interval:
+     lower      upper 
+-0.5021530 -0.4231702 
+
+[1] "CoC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.145687 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1737678 -0.1173695 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+     Wilcoxon.p
+1  3.347525e-10
+2  1.769650e-04
+3  5.434569e-03
+4  1.366126e-01
+5  9.093259e-02
+6  5.433877e-01
+7  5.216520e-01
+8  1.000000e+00
+9  1.000000e+00
+10 1.000000e+00
+11 1.000000e+00
+12           NA
+13 1.000000e+00
+14 1.000000e+00
+15 1.000000e+00
+16 8.246896e-01
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1  1.00000000
+2  0.33083304
+3  0.07497176
+4  0.46983272
+5  1.00000000
+6  0.22945783
+7  0.22174279
+8  1.00000000
+9  1.00000000
+10 1.00000000
+11 1.00000000
+12         NA
+13 0.15370282
+14 0.22174279
+15 1.00000000
+16 0.49892144
+[1] "Qwen 3B Results (Adjusted P-values):"
+     Wilcoxon.p
+1  2.739156e-49
+2  1.000000e+00
+3  7.056049e-02
+4  7.412444e-03
+5  1.000000e+00
+6  1.000000e+00
+7  1.000000e+00
+8  1.000000e+00
+9  1.000000e+00
+10 1.000000e+00
+11 4.092058e-02
+12           NA
+13 8.979239e-01
+14 1.238904e-54
+15 7.746330e-69
+16 1.391217e-22

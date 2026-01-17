@@ -1,0 +1,53 @@
+================================================================================
+RQ3: Code Translation - C# to Java (3-task vs 2-task) - Wilcoxon Signed-Rank Test
+================================================================================
+
+------------------------------------------------------------------------------
+QWEN 3B: MT-QLoRA (3-task) vs MT-QLoRA (CG+CT)
+------------------------------------------------------------------------------
+Metric               p-value    Cliff's d  Significant
+------------------------------------------------------------------------------
+CodeBLEU              0.0000      -0.1176          Yes
+Lizard_LoC            1.0000      -0.0039           No
+Lizard_ToK            1.0000      -0.0057           No
+Lizard_DR             1.0000       0.0030           No
+Lizard_CyC            0.6178       0.0089           No
+PMD_BestPrac          1.0000       0.0037           No
+PMD_CS                1.0000      -0.0497           No
+PMD_Design            1.0000      -0.0092           No
+PMD_EP                0.3953      -0.0553           No
+PMD_MT                    NA       0.0000           NA
+PMD_Perf              1.0000      -0.0167           No
+Sonar_Sec                 NA       0.0000           NA
+Sonar_Rel             0.3953      -0.0080           No
+Sonar_Main            0.0000      -0.3000          Yes
+Sonar_CyC             0.0000      -0.3189          Yes
+Sonar_CoC             0.0000      -0.0909          Yes
+
+------------------------------------------------------------------------------
+QWEN 3B: MT-QLoRA (3-task) vs MT-QLoRA (CS+CT)
+------------------------------------------------------------------------------
+Metric               p-value    Cliff's d  Significant
+------------------------------------------------------------------------------
+CodeBLEU              0.0000       0.7599          Yes
+Lizard_LoC            0.0000       0.8535          Yes
+Lizard_ToK            0.0000       0.8461          Yes
+Lizard_DR             0.0000       0.7860          Yes
+Lizard_CyC            0.0000       0.8092          Yes
+PMD_BestPrac          0.3537       0.0229           No
+PMD_CS                0.0252      -0.0884          Yes
+PMD_Design            0.7369      -0.0069           No
+PMD_EP                0.7369      -0.0123           No
+PMD_MT                    NA       0.0000           NA
+PMD_Perf              0.7369      -0.0165           No
+Sonar_Sec                 NA       0.0000           NA
+Sonar_Rel             0.0982       0.0060           No
+Sonar_Main            0.0000      -0.5612          Yes
+Sonar_CyC             0.0000       0.2024          Yes
+Sonar_CoC             0.0000       0.0520          Yes
+
+================================================================================
+Note: p-values are Holm-Bonferroni corrected
+Note: PMD CS+CT comparison uses file: r-pmd_ct_3b_cg_cs-mt-qlora.csv
+Cliff's Delta interpretation: |d| < 0.147 (N), < 0.33 (S), < 0.474 (M), >= 0.474 (L)
+================================================================================

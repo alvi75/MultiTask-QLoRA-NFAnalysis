@@ -1,0 +1,15 @@
+================================================================================
+RQ2: Pass@1 McNemar Test - MT-QLoRA vs MT-FFT
+================================================================================
+
+(a) Python
+-----------
+Qwen 0.5B: both_pass= 5 , QLoRA_only= 25 , FFT_only= 23 , both_fail= 135 , p= 0.885234 , adj_p= 1.000000 , OR= 1.0851 
+Qwen 1.5B: both_pass= 10 , QLoRA_only= 26 , FFT_only= 20 , both_fail= 133 , p= 0.460995 , adj_p= 1.000000 , OR= 1.2927 
+Qwen 3B: both_pass= 32 , QLoRA_only= 8 , FFT_only= 1 , both_fail= 148 , p= 0.045500 , adj_p= 0.273002 , OR= 5.6667 
+
+(b) Java
+---------
+Qwen 0.5B: both_pass= 25 , QLoRA_only= 12 , FFT_only= 10 , both_fail= 137 , p= 0.831170 , adj_p= 1.000000 , OR= 1.1905 
+Qwen 1.5B: both_pass= 20 , QLoRA_only= 15 , FFT_only= 17 , both_fail= 132 , p= 0.859684 , adj_p= 1.000000 , OR= 0.8857 
+Qwen 3B: both_pass= 41 , QLoRA_only= 18 , FFT_only= 8 , both_fail= 117 , p= 0.077556 , adj_p= 0.387781 , OR= 2.1765 

@@ -1,0 +1,400 @@
+[1] "********************** QWEN 0.5B: ST-QLoRA vs MT-QLoRA (Python) *********************************"
+[1] "Lines_of_Code - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.002936288 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1126267  0.1184209 
+
+[1] "Token_Count - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01606648 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1317836  0.1000826 
+
+[1] "Detection_Rate - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Cyclomatic_Complexity - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.008975069 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1216444  0.1039226 
+
+[1] "Error - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04734072 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15370339  0.06010643 
+
+[1] "Warning - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.004847645 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1198860  0.1103192 
+
+[1] "Convention - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.00033241 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1022780  0.1016201 
+
+[1] "Refactor - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.003795014 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08791808  0.08038180 
+
+[1] "Security_Hotspots - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.02094183 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04987436  0.00802582 
+
+[1] "Maintainability - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03919668 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.12207391  0.04422337 
+
+[1] "CyC - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0166482 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.12939283  0.09652138 
+
+[1] "CoC - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.004432133 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1179425  0.1091926 
+
+[1] "********************** QWEN 1.5B: ST-QLoRA vs MT-QLoRA (Python) *********************************"
+[1] "Lines_of_Code - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03304709 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.14738827  0.08216574 
+
+[1] "Token_Count - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005844875 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1209584  0.1094237 
+
+[1] "Detection_Rate - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Cyclomatic_Complexity - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.02941828 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.14185413  0.08376698 
+
+[1] "Error - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.008171745 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1195585  0.1034182 
+
+[1] "Warning - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04526316 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1597630  0.0704384 
+
+[1] "Convention - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.02022161 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.12279860  0.08278288 
+
+[1] "Refactor - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01509695 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10813539  0.07820365 
+
+[1] "Security_Hotspots - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 2.770083e-05 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02899847  0.02905383 
+
+[1] "Maintainability - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.07443213 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.156220254  0.008369744 
+
+[1] "CyC - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01722992 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13077546  0.09676178 
+
+[1] "CoC - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.05085873 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.16493654  0.06456187 
+
+[1] "********************** QWEN 3B: ST-QLoRA vs MT-QLoRA (Python) *********************************"
+[1] "Lines_of_Code - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.03083102 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08510532  0.14594366 
+
+[1] "Token_Count - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01481994 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1305507  0.1013092 
+
+[1] "Detection_Rate - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Cyclomatic_Complexity - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.007146814 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1205121  0.1064025 
+
+[1] "Error - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.06144044 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17042258  0.04902666 
+
+[1] "Warning - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.04277008 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.0732469  0.1576449 
+
+[1] "Convention - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.03556787 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13545868  0.06503874 
+
+[1] "Refactor - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01961219 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10540263  0.06646803 
+
+[1] "Security_Hotspots - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.02631579 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02968192 -0.02294907 
+
+[1] "Maintainability - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.02808864 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04816826  0.10402000 
+
+[1] "CyC - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.01180055 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1011926  0.1244932 
+
+[1] "CoC - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.02750693 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08733364  0.14162596 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   1.0000000
+2   1.0000000
+3          NA
+4   1.0000000
+5   0.5355175
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9          NA
+10  0.5005029
+11  1.0000000
+12  1.0000000
+13  1.0000000
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   1.0000000
+2   1.0000000
+3          NA
+4   1.0000000
+5   1.0000000
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9          NA
+10  1.0000000
+11  0.1561064
+12  1.0000000
+13  0.9356059
+[1] "Qwen 3B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   1.0000000
+2   1.0000000
+3          NA
+4   1.0000000
+5   0.1593610
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9          NA
+10  0.2534732
+11  1.0000000
+12  1.0000000
+13  1.0000000

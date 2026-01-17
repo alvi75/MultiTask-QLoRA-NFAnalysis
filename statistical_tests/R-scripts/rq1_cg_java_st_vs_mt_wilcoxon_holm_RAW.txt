@@ -1,0 +1,460 @@
+[1] "********************** QWEN 0.5B: ST-QLoRA vs MT-QLoRA (Java) *********************************"
+[1] "Lines_of_Code - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.09626063 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.21101602  0.02111211 
+
+[1] "Token_Count - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.002628781 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1176997  0.1125118 
+
+[1] "Detection_Rate - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 1.726842e-19 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03648838  0.03648838 
+
+[1] "Cyclomatic_Complexity - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.02640595 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13987482  0.08774746 
+
+[1] "bestpractices - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.008683837 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10697791  0.08977834 
+
+[1] "codestyle - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.05730151 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05982584  0.17287243 
+
+[1] "design - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01937618 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.12560844  0.08729539 
+
+[1] "errorprone - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005877836 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07442724  0.06272686 
+
+[1] "multithreading - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 8.861059e-05 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02593825  0.02611535 
+
+[1] "performance - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.01219872 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03438580  0.05873036 
+
+[1] "Security_Hotspots - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03349607  0.02263506 
+
+[1] "Maintainability - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.004873582 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1143702  0.1047400 
+
+[1] "CyC - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 5.907372e-05 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1138068  0.1139235 
+
+[1] "CoC - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01512287 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1309217  0.1010830 
+
+[1] "********************** QWEN 1.5B: ST-QLoRA vs MT-QLoRA (Java) *********************************"
+[1] "Lines_of_Code - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.09670369 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02150074  0.21224179 
+
+[1] "Token_Count - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1004844 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01820927  0.21638522 
+
+[1] "Detection_Rate - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03249183  0.04334577 
+
+[1] "Cyclomatic_Complexity - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1179702 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.00147717 0.23130428 
+
+[1] "bestpractices - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02741021 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07157071  0.12585654 
+
+[1] "codestyle - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.05437736 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06329219  0.17055575 
+
+[1] "design - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01651111 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.12163075  0.08897481 
+
+[1] "errorprone - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02224126 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04356626  0.08785661 
+
+[1] "multithreading - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03716228  0.02630366 
+
+[1] "performance - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.005109877 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03254575  0.04275101 
+
+[1] "Security_Hotspots - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -2.339284e-19 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02131132  0.02131132 
+
+[1] "Maintainability - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02094164 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.09040656  0.13177273 
+
+[1] "CyC - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1008093 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01597208  0.21487736 
+
+[1] "CoC - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1111472 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.006086304  0.225366890 
+
+[1] "********************** QWEN 3B: ST-QLoRA vs MT-QLoRA (Java) *********************************"
+[1] "Lines_of_Code - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01559546 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1321712  0.1014059 
+
+[1] "Token_Count - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.01940572 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.09765845  0.13594022 
+
+[1] "Detection_Rate - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01835443  0.02921785 
+
+[1] "Cyclomatic_Complexity - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.04894258 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06474576  0.16137670 
+
+[1] "bestpractices - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.008861059 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10948818  0.09194585 
+
+[1] "codestyle - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.004076087 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1202231  0.1121810 
+
+[1] "design - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.00611413 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.0999951  0.1120859 
+
+[1] "errorprone - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01305529 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08160030  0.05561264 
+
+[1] "multithreading - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03349607  0.02263506 
+
+[1] "performance - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.02173913 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02254403  0.06593715 
+
+[1] "Security_Hotspots - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -2.339284e-19 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02131132  0.02131132 
+
+[1] "Maintainability - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.03443998 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07464469  0.14271018 
+
+[1] "CyC - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.04988776 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06365184  0.16215240 
+
+[1] "CoC - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.03036389 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08522583  0.14514715 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   0.2143685
+2   1.0000000
+3   1.0000000
+4   1.0000000
+5   1.0000000
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9   1.0000000
+10  1.0000000
+11         NA
+12  1.0000000
+13  1.0000000
+14  1.0000000
+15  1.0000000
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   0.7917831
+2   0.7917831
+3   1.0000000
+4   0.7917831
+5   1.0000000
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9   1.0000000
+10  1.0000000
+11         NA
+12  1.0000000
+13  1.0000000
+14  1.0000000
+15  1.0000000
+[1] "Qwen 3B Results (Adjusted P-values):"
+   Wilcoxon.p
+1           1
+2           1
+3           1
+4           1
+5           1
+6           1
+7           1
+8           1
+9           1
+10          1
+11         NA
+12          1
+13          1
+14          1
+15          1

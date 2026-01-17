@@ -1,0 +1,400 @@
+[1] "********************** QWEN 0.5B: MT-QLoRA vs MT-FFT (Python) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0531856 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.16640803  0.06142103 
+
+[1] "Token_Count - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.06692521 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.18097315  0.04889878 
+
+[1] "Detection_Rate - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.01578947 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.002042156  0.033611065 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.01495845 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.09896485  0.12849470 
+
+[1] "Error - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03975069 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.14866514  0.07011658 
+
+[1] "Warning - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.003822715 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1121656  0.1197083 
+
+[1] "Convention - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01296399 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.11670040  0.09105224 
+
+[1] "Refactor - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04980609 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13618022  0.03731952 
+
+[1] "Security_Hotspots - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005623269 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03932781  0.02809405 
+
+[1] "Maintainability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01390582 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10090083  0.07330023 
+
+[1] "CyC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.1402216 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.02753518 0.24938892 
+
+[1] "CoC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.06911357 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04576042  0.18218355 
+
+[1] "********************** QWEN 1.5B: MT-QLoRA vs MT-FFT (Python) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.05191136 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.16674877  0.06431554 
+
+[1] "Token_Count - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.06432133 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17907572  0.05215974 
+
+[1] "Detection_Rate - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.05421053 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.16783983  0.06084036 
+
+[1] "Error - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04180055 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15355551  0.07101022 
+
+[1] "Warning - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.07531856 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04102706  0.18964899 
+
+[1] "Convention - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.07 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03499405  0.17346571 
+
+[1] "Refactor - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.03415512 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05755383  0.12529247 
+
+[1] "Security_Hotspots - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005235457 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03597008  0.02550906 
+
+[1] "Maintainability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.06742382 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01691923  0.15081410 
+
+[1] "CyC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.03465374 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07934969  0.14776239 
+
+[1] "CoC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.003462604 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1185406  0.1117071 
+
+[1] "********************** QWEN 3B: MT-QLoRA vs MT-FFT (Python) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1368698 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.24759577 -0.02261465 
+
+[1] "Token_Count - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1344598 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.24554219 -0.01989207 
+
+[1] "Detection_Rate - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.07703601 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.18766824  0.03552633 
+
+[1] "Error - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.04066482 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.14828010  0.06790225 
+
+[1] "Warning - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.0003601108 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1139159  0.1132049 
+
+[1] "Convention - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.1418006 (negligible)
+95 percent confidence interval:
+     lower      upper 
+0.03920042 0.24144188 
+
+[1] "Refactor - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.05498615 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.14310458  0.03399719 
+
+[1] "Security_Hotspots - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.02631579 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.003413699 0.049190289 
+
+[1] "Maintainability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.05509695 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1329785  0.0234608 
+
+[1] "CyC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.03196676 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08061214  0.14374034 
+
+[1] "CoC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.001939058 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1133648  0.1095349 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   0.3886933
+2   0.3886933
+3   0.7493806
+4   1.0000000
+5   1.0000000
+6   1.0000000
+7   1.0000000
+8   1.0000000
+9          NA
+10  1.0000000
+11  1.0000000
+12  0.2303845
+13  1.0000000
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+   Wilcoxon.p
+1   1.0000000
+2   1.0000000
+3          NA
+4   1.0000000
+5   1.0000000
+6   0.4381457
+7   1.0000000
+8   1.0000000
+9          NA
+10  1.0000000
+11  0.5358600
+12  1.0000000
+13  1.0000000
+[1] "Qwen 3B Results (Adjusted P-values):"
+     Wilcoxon.p
+1  0.0008334438
+2  0.0001614450
+3            NA
+4  0.0128043409
+5  0.7999772767
+6  0.9097168371
+7  0.0065669563
+8  0.2757031491
+9            NA
+10 0.1774312307
+11 0.2761249937
+12 0.9097168371
+13 0.9081133495

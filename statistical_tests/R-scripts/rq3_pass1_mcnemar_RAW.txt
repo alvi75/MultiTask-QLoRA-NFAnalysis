@@ -1,0 +1,26 @@
+================================================================================
+RQ3: Pass@1 McNemar Test - 3-task vs 2-task (Qwen 3B)
+================================================================================
+
+(a) Python
+-----------
+
+Comparison: 3-task vs CG+CS
+  Contingency: both_pass= 12 , 3task_only= 28 , 2task_only= 25 , both_fail= 124 
+  Original P-value: 0.783530 , Adjusted P-value: 1.000000 , Odds Ratio: 1.1176 
+
+Comparison: 3-task vs CG+CT
+  Contingency: both_pass= 33 , 3task_only= 7 , 2task_only= 7 , both_fail= 142 
+  Original P-value: 1.000000 , Adjusted P-value: 1.000000 , Odds Ratio: 1.0000 
+
+(b) Java
+-----------
+
+Comparison: 3-task vs CG+CS
+  Contingency: both_pass= 50 , 3task_only= 9 , 2task_only= 13 , both_fail= 112 
+  Original P-value: 0.522431 , Adjusted P-value: 1.000000 , Odds Ratio: 0.7037 
+
+Comparison: 3-task vs CG+CT
+  Contingency: both_pass= 50 , 3task_only= 9 , 2task_only= 17 , both_fail= 108 
+  Original P-value: 0.169811 , Adjusted P-value: 0.679242 , Odds Ratio: 0.5429 
+

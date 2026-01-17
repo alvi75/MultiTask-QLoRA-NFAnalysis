@@ -1,0 +1,160 @@
+[1] "********************** QWEN 0.5B: ST-QLoRA vs MT-QLoRA (Python Summarization) *********************************"
+[1] "BLEU - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0762 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.23333154  0.08480974 
+
+[1] "METEOR - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0548 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.2094834  0.1025592 
+
+[1] "Rouge-L - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1138 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.26969491  0.04790786 
+
+[1] "chrF - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0989 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.25502399  0.06224966 
+
+[1] "BERTScore - ST vs MT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1031 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.25921227  0.05826239 
+
+[1] "********************** QWEN 1.5B: ST-QLoRA vs MT-QLoRA (Python Summarization) *********************************"
+[1] "BLEU - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.093 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.24932376  0.06804726 
+
+[1] "METEOR - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1059 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.26177040  0.05535433 
+
+[1] "Rouge-L - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1081 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.26438635  0.05371871 
+
+[1] "chrF - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1045 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.26032170  0.05662702 
+
+[1] "BERTScore - ST vs MT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.129 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.28309371  0.03158604 
+
+[1] "********************** QWEN 3B: ST-QLoRA vs MT-QLoRA (Python Summarization) *********************************"
+[1] "BLEU - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1955 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.34606243 -0.03512086 
+
+[1] "METEOR - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1943 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.34562744 -0.03312252 
+
+[1] "Rouge-L - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1876 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.33885609 -0.02689076 
+
+[1] "chrF - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1925 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.34364088 -0.03163851 
+
+[1] "BERTScore - ST vs MT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.1697 (small)
+95 percent confidence interval:
+       lower        upper 
+-0.322189196 -0.008627327 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+  Wilcoxon.p
+1 0.08442217
+2 0.08442217
+3 0.03841698
+4 0.06443456
+5 0.06443456
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+    Wilcoxon.p
+1 6.362119e-04
+2 7.157905e-05
+3 2.277826e-04
+4 2.277826e-04
+5 5.523442e-05
+[1] "Qwen 3B Results (Adjusted P-values):"
+    Wilcoxon.p
+1 5.074904e-05
+2 4.900715e-05
+3 5.074904e-05
+4 5.074904e-05
+5 9.241812e-05

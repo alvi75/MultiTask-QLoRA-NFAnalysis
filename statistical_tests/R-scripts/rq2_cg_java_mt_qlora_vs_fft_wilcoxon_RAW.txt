@@ -1,0 +1,460 @@
+[1] "********************** QWEN 0.5B: MT-QLoRA vs MT-FFT (Java) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1672377 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.28071680 -0.04914742 
+
+[1] "Token_Count - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1162866 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.231751296  0.002409195 
+
+[1] "Detection_Rate - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01630435 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.04798165  0.01540572 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0870156 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.20062661  0.02890486 
+
+[1] "bestpractices - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.05446597 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1546814  0.0468589 
+
+[1] "codestyle - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.06232278 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17745706  0.05449448 
+
+[1] "design - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0.02392486 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08276415  0.13007167 
+
+[1] "errorprone - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.03163398 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10264022  0.03969301 
+
+[1] "multithreading - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03349607  0.02263506 
+
+[1] "performance - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01651111 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.06290411  0.02995310 
+
+[1] "Security_Hotspots - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0001181474 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02809611  0.02786000 
+
+[1] "Maintainability - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1038516 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.212348229  0.007174272 
+
+[1] "CyC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1112358 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.224215298  0.004694025 
+
+[1] "CoC - QLoRA vs FFT (0.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1543006 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.26558937 -0.03895369 
+
+[1] "********************** QWEN 1.5B: MT-QLoRA vs MT-FFT (Java) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.2501477 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3594324 -0.1340943 
+
+[1] "Token_Count - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.2567639 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3659246 -0.1406339 
+
+[1] "Detection_Rate - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.02717391 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.058761708  0.004468243 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.2321302 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3412052 -0.1168870 
+
+[1] "bestpractices - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0747578 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17398947  0.02597685 
+
+[1] "codestyle - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1028474 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.21757827  0.01468698 
+
+[1] "design - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01382325 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.11937892  0.09204142 
+
+[1] "errorprone - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.04120392 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10930799  0.02728518 
+
+[1] "multithreading - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.01645203 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.05281634  0.01995586 
+
+[1] "performance - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.0376595 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.085070553  0.009921707 
+
+[1] "Security_Hotspots - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.005493856 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02674441  0.01576166 
+
+[1] "Maintainability - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.1175272 (negligible)
+95 percent confidence interval:
+       lower        upper 
+-0.226566414 -0.005578485 
+
+[1] "CyC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.2523925 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.3603884 -0.1377199 
+
+[1] "CoC - QLoRA vs FFT (1.5B)"
+
+Cliff's Delta
+
+delta estimate: -0.2076441 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.31818724 -0.09153039 
+
+[1] "********************** QWEN 3B: MT-QLoRA vs MT-FFT (Java) *********************************"
+[1] "Lines_of_Code - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.09386815 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.20926598  0.02410829 
+
+[1] "Token_Count - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.09785562 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.21369523  0.02069771 
+
+[1] "Detection_Rate - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01086957 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.03214668  0.01041739 
+
+[1] "Cyclomatic_Complexity - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.04297613 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15688337  0.07205945 
+
+[1] "bestpractices - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.01323251 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.08744767  0.11364510 
+
+[1] "codestyle - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01255317 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1287131  0.1039466 
+
+[1] "design - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.04572306 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.15078659  0.06036183 
+
+[1] "errorprone - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.007266068 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.07662999  0.06216784 
+
+[1] "multithreading - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.02263506  0.03349607 
+
+[1] "performance - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.05517486 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.10119357 -0.00892054 
+
+[1] "Security_Hotspots - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0 (negligible)
+95 percent confidence interval:
+lower upper 
+    0     0 
+
+[1] "Reliability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: 0.005434783 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.01304115  0.02390701 
+
+[1] "Maintainability - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.06545369 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.17463746  0.04532019 
+
+[1] "CyC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.02114839 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13551713  0.09377654 
+
+[1] "CoC - QLoRA vs FFT (3B)"
+
+Cliff's Delta
+
+delta estimate: -0.01766304 (negligible)
+95 percent confidence interval:
+      lower       upper 
+-0.13340518  0.09855442 
+
+[1] "***************************************************************************"
+[1] "Qwen 0.5B Results (Adjusted P-values):"
+    Wilcoxon.p
+1  0.004034607
+2  0.099120315
+3  1.000000000
+4  1.000000000
+5  0.543387720
+6  0.521652044
+7  1.000000000
+8  1.000000000
+9  1.000000000
+10 1.000000000
+11          NA
+12 1.000000000
+13 0.422042305
+14 0.647705652
+15 0.029656199
+[1] "Qwen 1.5B Results (Adjusted P-values):"
+     Wilcoxon.p
+1  0.0001400174
+2  0.0001510117
+3  0.5734842273
+4  0.0033219161
+5  0.1668784215
+6  0.1535142417
+7  1.0000000000
+8  1.0000000000
+9  0.7813437006
+10 0.7813437006
+11           NA
+12 1.0000000000
+13 0.3111126941
+14 0.0006976770
+15 0.0062578632
+[1] "Qwen 3B Results (Adjusted P-values):"
+   Wilcoxon.p
+1  0.36218462
+2  0.88511736
+3  1.00000000
+4  1.00000000
+5  1.00000000
+6  1.00000000
+7  1.00000000
+8  1.00000000
+9  1.00000000
+10 0.05728881
+11         NA
+12 1.00000000
+13 1.00000000
+14 1.00000000
+15 1.00000000
