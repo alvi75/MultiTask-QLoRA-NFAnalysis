@@ -205,19 +205,3 @@ python codereval/aggregate_llm_judge_scores.py
 - **Conciseness**: Absence of unnecessary information
 - **Fluency**: Readability and clarity
 
-## Requirements
-
-```
-torch
-transformers
-datasets
-trl
-peft
-bitsandbytes
-sacrebleu
-rouge-score
-bert-score
-nltk
-openai
-sentence-transformers  # Required for SIDE score
-```
