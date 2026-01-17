@@ -193,18 +193,4 @@ python codereval/add_java_wrappers_cg.py \
 ### Functional Correctness
 - **Pass@k**: Probability that at least one of k generated samples passes all test cases (computed via [CoderEval](https://github.com/CoderEval/CoderEval))
 
-### Code Quality (Static Analysis)
-- **PMD**: Code quality violations and metrics
-- **SonarCloud**: Code smells, bugs, vulnerabilities
 
-## Requirements
-
-```
-torch
-transformers
-datasets
-trl
-peft
-bitsandbytes
-codebleu
-```
