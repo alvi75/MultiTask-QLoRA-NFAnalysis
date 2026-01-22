@@ -1,6 +1,6 @@
 # Parameter-Efficient Multi-Task Fine-Tuning in Code-Related Tasks
 
-**Paper**: [arXiv](https://arxiv.org/abs/2601.15094)
+[![arXiv](https://img.shields.io/badge/arXiv-2601.15094-b31b1b.svg)](https://arxiv.org/abs/2601.15094)
 
 ## Abstract
 
