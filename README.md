@@ -1,26 +1,11 @@
 # Parameter-Efficient Multi-Task Fine-Tuning in Code-Related Tasks
 
+[![arXiv](https://img.shields.io/badge/arXiv-2601.15094-b31b1b.svg)](https://arxiv.org/abs/2601.15094)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Abstract
 
 Large Language Models (LLMs) have proven highly effective in automating software engineering tasks, bridging natural language and code semantics to achieve notable results in code generation and summarization. However, their scale incurs substantial computational costs, making full fine-tuning impractical. Parameter-Efficient Fine-Tuning (PEFT) methods like QLoRA enable efficient specialization with lower resource demands. Recent studies show QLoRA-optimized Large Code Models (LCMs) perform strongly across diverse tasks, yet it remains unclear whether this effectiveness persists when a single model is QLoRA fine-tuned for multiple code-related tasks. The interaction between Multi-task fine-tuning and QLoRA optimization, and how transfer learning affects correctness and quality of generated artifacts, remains largely unexplored. We investigate Multi-task QLoRA fine-tuning across three representative tasks: code generation, translation, and summarization. We evaluate functional correctness through execution-based and similarity-based metrics, complemented by comprehensive code quality analysis--an aspect largely overlooked in prior work. Our findings show that Multi-task QLoRA effectively leverages transfer learning, achieving competitive or superior performance relative to both Single-task QLoRA and Multi-task full fine-tuning. Larger models demonstrate more consistent balance between correctness and quality, whereas smaller models preserve functionality but exhibit a higher incidence of quality-related issues.
-
----
-
-## Citation
-
-If you find this work useful, please cite our paper:
-
-```bibtex
-@misc{haque2026parameterefficientmultitaskfinetuningcoderelated,
-      title={Parameter-Efficient Multi-Task Fine-Tuning in Code-Related Tasks}, 
-      author={Md Zahidul Haque and Saima Afrin and Antonio Mastropaolo},
-      year={2026},
-      eprint={2601.15094},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE},
-      url={https://arxiv.org/abs/2601.15094}, 
-}
-```
 
 ---
 
@@ -188,6 +173,24 @@ statistical_tests/
 - **Batch size**: 2, **Gradient accumulation**: 16 (default across all tasks, effective batch size = 32)
 - **Validation samples**: 5–10% of validation set recommended; capped at 250–400 to avoid OOM
 - **Evaluation steps**: Computed as dataset size ÷ effective batch size (steps per epoch)
+
+---
+
+## Citation
+
+If you find this work useful, please cite our paper:
+
+```bibtex
+@misc{haque2026parameterefficientmultitaskfinetuningcoderelated,
+      title={Parameter-Efficient Multi-Task Fine-Tuning in Code-Related Tasks}, 
+      author={Md Zahidul Haque and Saima Afrin and Antonio Mastropaolo},
+      year={2026},
+      eprint={2601.15094},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2601.15094}, 
+}
+```
 
 ---
 
