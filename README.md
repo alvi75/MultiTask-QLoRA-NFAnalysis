@@ -6,6 +6,24 @@ Large Language Models (LLMs) have proven highly effective in automating software
 
 ---
 
+## Citation
+
+If you find this work useful, please cite our paper:
+
+```bibtex
+@misc{haque2026parameterefficientmultitaskfinetuningcoderelated,
+      title={Parameter-Efficient Multi-Task Fine-Tuning in Code-Related Tasks}, 
+      author={Md Zahidul Haque and Saima Afrin and Antonio Mastropaolo},
+      year={2026},
+      eprint={2601.15094},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2601.15094}, 
+}
+```
+
+---
+
 ## Repository Structure
 
 ```
